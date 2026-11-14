@@ -11,8 +11,8 @@ from app.api.serializers import claim_out, company_summary, evidence_out, opport
 from app.db.session import get_db
 from app.models import CollaborationRecommendation, Company, CompanyClaim, CompanyTechnology, ProfileRevision, Recommendation
 from app.schemas.api import ClaimReview, CompanySummary, Page, PrioritiesUpdate, ProfilePatch
-from app.security.auth import Principal, PrincipalDep, require_company
-from app.security.deps import rate_limit
+from app.security.auth import Principal, PrincipalDep, require_company, require_company_write
+from app.security.deps import rate_limit, write_rate_limit
 from app.services.intelligence import editing
 from app.services.intelligence.enrichment import run_inference
 from app.services.intelligence.profile import build_profile, claim_strength_public, load_company
@@ -22,6 +22,7 @@ from app.services.matching.opportunity_matching import RELEVANT_THRESHOLD
 from app.services.recommendations.pipeline import Workspace, ranking_diff, ranking_snapshot, recompute_all
 
 router = APIRouter(prefix="/api/companies", tags=["companies"])
+_WRITE_LIMIT = Depends(write_rate_limit(30, 60))  # each change recomputes rankings; refused attempts use a separate bucket
 
 
 def _company(db: Session, company_id: int, *, profiled: bool = False) -> Company:
@@ -132,9 +133,10 @@ def _apply_and_diff(db: Session, company: Company, mutate) -> dict:  # noqa: ANN
     return {"result": result, "ranking_changes": ranking_diff(before, after)}
 
 
-@router.patch("/{company_id}/profile", summary="Refine a profile: add claims, correct claims, set priorities")
+@router.patch("/{company_id}/profile", summary="Refine a profile: add claims, correct claims, set priorities",
+              dependencies=[_WRITE_LIMIT])
 def patch_profile(company_id: int, body: ProfilePatch, db: Session = Depends(get_db), principal: Principal = PrincipalDep) -> dict:
-    require_company(company_id, principal)
+    require_company_write(company_id, principal)
     c = _company(db, company_id, profiled=not principal.is_admin)
     if c.profile_level == "directory":
         if body.corrections or not body.add_claims:
@@ -176,9 +178,10 @@ def list_claims(company_id: int, claim_type: str | None = Query(default=None, pa
     return public
 
 
-@router.post("/{company_id}/claims/{claim_id}/review", summary="Confirm, reject, mark outdated or restore a claim")
+@router.post("/{company_id}/claims/{claim_id}/review", summary="Confirm, reject, mark outdated or restore a claim",
+             dependencies=[_WRITE_LIMIT])
 def review_claim(company_id: int, claim_id: int, body: ClaimReview, db: Session = Depends(get_db), principal: Principal = PrincipalDep) -> dict:
-    require_company(company_id, principal)
+    require_company_write(company_id, principal)
     c = _company(db, company_id, profiled=True)
     claim = db.get(CompanyClaim, claim_id)
     if claim is None or claim.company_id != c.id:
@@ -193,9 +196,9 @@ def review_claim(company_id: int, claim_id: int, body: ClaimReview, db: Session 
     return out
 
 
-@router.put("/{company_id}/priorities", summary="Set company priorities and see how rankings change")
+@router.put("/{company_id}/priorities", summary="Set company priorities and see how rankings change", dependencies=[_WRITE_LIMIT])
 def put_priorities(company_id: int, body: PrioritiesUpdate, db: Session = Depends(get_db), principal: Principal = PrincipalDep) -> dict:
-    require_company(company_id, principal)
+    require_company_write(company_id, principal)
     c = _company(db, company_id, profiled=True)
     return _apply_and_diff(db, c, lambda: editing.set_priorities(db, c, body.weights))
 

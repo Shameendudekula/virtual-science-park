@@ -62,17 +62,29 @@ npm run dev
 | API | http://localhost:8000/api |
 | API documentation | http://localhost:8000/api/docs |
 
-**Sign in:** each company has one workspace login (username = company slug, e.g. `ocean-harvesting`; password = `DEMO_COMPANY_PASSWORD` from `.env`). With `DEMO_MODE=true` the login page also offers password-free demo workspaces.
+**Sign in:** each company has one workspace login (username = company slug, e.g. `ocean-harvesting`; password = `DEMO_COMPANY_PASSWORD` from `.env`). A password sign-in can edit its own company's profile, priorities and saved items. With `DEMO_MODE=true` the login page also offers password-free demo workspaces; these are **read-only** (every page can be explored, nothing can be changed). Resetting the demo and running collectors need the admin token (`ADMIN_TOKEN`).
 
 **Docker (written, not yet executed):** `cp .env.example .env && docker compose up --build`, then open http://localhost:8080.
 
 ## Tests and build
 
+**No-database tests** (no PostgreSQL needed): database fixtures are skipped and the test URL points at a closed local port, so no connection is made.
+
 ```bash
-cd backend && pytest                       # drops and recreates the public schema of vsp_park_test
-cd backend && VSP_TEST_NO_DB=1 pytest      # database-independent tests only (no connection is made)
+cd backend && VSP_TEST_NO_DB=1 pytest
 cd frontend && npm test && npm run build
 ```
+
+**Full database-backed tests** drop and recreate the `public` schema of the target database (then apply the Alembic migrations and seed it). Run them only against a dedicated, isolated test database, never against `vsp`, `vsp_test`, `vsp_park` or `vsp_park_test`. `vsp_park_test` is the suite's built-in default when `TEST_DATABASE_URL` is unset, so always set it explicitly. `backend/tests/conftest.py` checks these before anything connects and aborts with exit code 4 if one fails:
+
+| Variable | Requirement |
+|---|---|
+| `TEST_DATABASE_URL` | Names the isolated test database and states its port explicitly |
+| `VSP_ALLOW_TEST_DATABASE` | The name of that database; must end with `_test` and can never be a protected database |
+| `VSP_TEST_EXPECTED_PORT` | Must equal the port in `TEST_DATABASE_URL` |
+| `VSP_TEST_EXPECTED_SYSTEM_ID` | Optional: the server's system identifier; any connection to a different server is refused |
+
+With those set, run `cd backend && pytest`. Every connection, and the schema reset itself, re-checks the database name, port and (if given) system identifier; see [docs/vsp/security.md](docs/vsp/security.md#database-and-configuration-safety).
 
 ## Configuration
 
@@ -84,16 +96,21 @@ All settings are in [.env.example](.env.example). The ones you are most likely t
 | `VSP_ALLOW_DATABASE` | Deliberate opt-in for one other database name (never a protected one) |
 | `ENVIRONMENT` | `development`, `test` or `production`. Production refuses demo mode, weak or placeholder secrets and the `vsp:vsp` database credentials |
 | `SECRET_KEY` | Signs workspace sessions. If empty, a random key is generated at each start. |
-| `ADMIN_TOKEN` | Required to run collectors manually (`X-Admin-Token` header) |
+| `ADMIN_TOKEN` | Required to run collectors and to reset the demo (`X-Admin-Token` header), also in demo mode |
 | `DEMO_COMPANY_PASSWORD` | Password for the seeded company accounts |
-| `DEMO_MODE` | Password-free demo login and demo reset. Off by default; `.env.example` turns it on for the local demo. Refused in production |
+| `DEMO_MODE` | Password-free, read-only demo login. Off by default; `.env.example` turns it on for the local demo. Refused in production |
 | `REFERENCE_DATE` | Pins "today" for a reproducible demo |
 | `LLM_PROVIDER`, `LLM_MODEL`, `LLM_API_KEY` | Optional summary rewording (`anthropic`; needs `pip install ".[llm]"`) |
 
 ## Current limitations
 
+**Ask VSP boundaries (implemented with deterministic rules, no LLM):** every question is classified before any search runs. Relevant questions get ranked records; unrelated requests get the service's remit and suggested questions; override and prompt-injection attempts and requests for private company data are declined; eligibility questions get potential matches with a notice that VSP does not assess eligibility or guarantee funding; questions that need a person are referred to Blue Science Park staff via its official website. Each message is checked on its own, so follow-ups get the same rules. Limits: keyword rules can miss unusual wording; vague requests are declined rather than answered with a clarifying question; it is structured search, not a conversational assistant.
+
+**Demo access and privacy:**
+- Demo sessions are read-only, enforced by the API (`403` on every change); a password session can change only its own company's data; demo reset and collectors require the admin token.
+- Searches made in a demo session are not stored, and demo sessions cannot read question history. Question history recorded before this change (including searches by earlier demo visitors) may still be stored and visible to the company account owner; the demo reset does not clear it.
+
 **Not yet implemented (brief requirements):**
-- **Ask-box with boundary handling (BR-13, FR-I01–I12).** The "Ask VSP" page is structured search: it turns a question into a database query and returns records. It is not a conversational assistant. It does not classify requests, restate its remit, ask clarifying questions, decline override attempts or refer questions to Blue Science Park staff.
 - **Runtime profiling agent (FR-P01–P03, FR-P13).** Company profiles are curated seed files whose quotes were verified verbatim against the official pages; a collector re-checks them. No agent fetches and extracts profiles at runtime.
 - **Brief-format details.** The brief's six claim categories and per-claim priority flag, event audience and dates, "what changed" summaries for updates, the exact "Potential match — eligibility not assessed" label, a banned-phrase check and a persistent prototype banner are missing or only partly implemented.
 
@@ -104,10 +121,10 @@ All settings are in [.env.example](.env.example). The ones you are most likely t
 
 **Known risks, not yet fixed:**
 - **Migration IDs.** The migrations use the revision IDs `0001` and `0002`, the same IDs an earlier prototype used for a different schema. The guards above stop them reaching `vsp`/`vsp_test`, but a copy of that schema under another name would still be mis-detected.
-- **Full test suite not yet re-run** after the safety changes (it needs PostgreSQL); only database-independent tests have been run.
+- **Database-backed tests need an isolated server.** The full suite has been run against an isolated test database (`TEST_DATABASE_URL` plus `VSP_TEST_EXPECTED_PORT`); this says nothing about any deployed environment, which has not been verified.
 
 **Other:**
-- Bundled data was collected on 13 November 2026. Run *Collect live* on the Data Sources page to refresh it.
+- Bundled data was collected on 13 November 2026. Run *Collect live* on the Data Sources page (admin token required) to refresh it.
 - Blue Science Park content is used as metadata only (title, date, link). Event dates and venues are not available.
 - Ymner is linked, not integrated: its API requires authentication and no reuse terms were found.
 - Scores are explainable heuristics, not probabilities.

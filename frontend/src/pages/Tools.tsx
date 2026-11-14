@@ -1,7 +1,7 @@
-import { Download, FileText, GitCompareArrows, History, Printer, Search as SearchIcon, Sparkles } from "lucide-react";
+import { Download, FileText, GitCompareArrows, History, Printer, Search as SearchIcon, ShieldAlert, Sparkles } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useWorkspace } from "@/app/workspace";
+import { useReadOnly, useWorkspace } from "@/app/workspace";
 import { Badge, Button, Card, CardBody, CardHeader, EmptyState, ErrorState, LoadingBlock, PageHeader, inputClass } from "@/components/ui/primitives";
 import { ClaimTypeBadge, SourceLink, TierBadge } from "@/components/shared/badges";
 import { CriteriaBreakdown, Section, Uncertainty } from "@/components/shared/explain";
@@ -9,6 +9,7 @@ import { OpportunityDrawer } from "@/features/opportunity";
 import { api } from "@/lib/api";
 import { useBrief, useCompanies, useCompare, useSearch, useSearchHistory } from "@/services/queries";
 import { formatDate } from "@/lib/utils";
+import type { SearchBoundary } from "@/types/api";
 
 // ------------------------------------------------------------------------------------------- Compare
 export function Compare() {
@@ -149,18 +150,47 @@ const EXAMPLES = [
   "Which research opportunities should Cleura explore?",
 ];
 
+const BOUNDARY_TITLE: Record<SearchBoundary["category"], string> = {
+  in_scope: "", out_of_scope: "Outside what this service does", override: "This request can't change how the service works",
+  private_data: "Private information is not shared", eligibility: "Potential matches only — not an eligibility decision", needs_human: "This needs a person",
+};
+
+/** Fixed, server-provided boundary message (deterministic rules, no LLM). Shown instead of results unless the request was answered. */
+function BoundaryNotice({ b, onAsk }: { b: SearchBoundary; onAsk: (q: string) => void }) {
+  const answered = b.handling === "answered_with_notice";
+  return (
+    <Card role="status" className={`p-4 text-[13px] ${answered ? "border-amber-200 bg-amber-50/60" : ""}`}>
+      <div className="flex items-start gap-2">
+        <ShieldAlert className={`mt-0.5 size-4 shrink-0 ${answered ? "text-amber-700" : "text-brand"}`} aria-hidden />
+        <div className="space-y-2">
+          <h2 className="font-semibold text-ink">{BOUNDARY_TITLE[b.category]}</h2>
+          {b.message && <p className="text-ink-2">{b.message}</p>}
+          {b.referral && <SourceLink href={b.referral.url}>{b.referral.label}</SourceLink>}
+          {b.suggestions.length > 0 && (
+            <div>
+              <div className="text-[12px] text-ink-3">You could ask:</div>
+              <div className="mt-1 flex flex-wrap gap-2">{b.suggestions.map((s) => <button key={s} onClick={() => onAsk(s)} className="rounded-full border border-line-2 bg-white px-3 py-1.5 text-[12.5px] text-ink-2 hover:border-brand hover:text-brand">{s}</button>)}</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </Card>
+  );
+}
+
 export function SearchPage() {
   const { companyId } = useWorkspace();
   const [sp, setSp] = useSearchParams();
   const [text, setText] = useState(sp.get("q") ?? "");
   const query = sp.get("q") ?? "";
   const q = useSearch(query, companyId);
-  const history = useSearchHistory(true);
+  const readOnly = useReadOnly();
+  const history = useSearchHistory(!readOnly);  // history is private; not kept for read-only demo sessions
   const [openOpp, setOpenOpp] = useState<number | null>(null);
   const refetchHistory = history.refetch;
   useEffect(() => {
-    if (q.data) refetchHistory();
-  }, [q.data, refetchHistory]);
+    if (q.data && !readOnly) refetchHistory();
+  }, [q.data, readOnly, refetchHistory]);
   const submit = (e?: FormEvent, v?: string) => {
     e?.preventDefault();
     const value = (v ?? text).trim();
@@ -185,7 +215,8 @@ export function SearchPage() {
           {!query && <EmptyState title="Ask a question to start" description="Try one of the examples above." icon={<SearchIcon className="size-5" />} />}
           {q.isLoading && <LoadingBlock rows={3} label="Searching" />}
           {q.isError && <ErrorState error={q.error} onRetry={() => q.refetch()} />}
-          {q.data && (
+          {q.data?.boundary && q.data.boundary.handling !== "answered" && <BoundaryNotice b={q.data.boundary} onAsk={(v) => submit(undefined, v)} />}
+          {q.data && (q.data.boundary?.handling ?? "answered").startsWith("answered") && (
             <>
               <Card className="p-4 text-[13px]">
                 <div className="font-semibold text-ink">Interpreted as</div>
@@ -219,7 +250,7 @@ export function SearchPage() {
           <CardHeader icon={<History className="size-4" />} title="Your recent questions" subtitle="Visible only in this company workspace." />
           <CardBody>
             {history.data?.length ? <ul className="space-y-1.5 text-[13px]">{history.data.map((h) => <li key={h.id}><button onClick={() => submit(undefined, h.query)} className="text-left text-ink hover:text-brand">{h.query}</button><div className="text-[11.5px] text-ink-3">{h.result_count} results · {formatDate(h.created_at)}</div></li>)}</ul>
-              : <p className="text-[13px] text-ink-3">No questions yet.</p>}
+              : <p className="text-[13px] text-ink-3">{readOnly ? "Question history is not kept in the read-only demo." : "No questions yet."}</p>}
           </CardBody>
         </Card>
       </div>

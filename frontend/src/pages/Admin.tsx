@@ -3,7 +3,8 @@ import { useMemo, useState, useSyncExternalStore } from "react";
 import { Badge, Button, Card, CardBody, CardHeader, ErrorState, LoadingBlock, PageHeader, inputClass } from "@/components/ui/primitives";
 import { SourceLink, StatusPill } from "@/components/shared/badges";
 import { getAdminToken, setAdminToken, subscribe } from "@/lib/session";
-import { useDemoReset, useHealth, useMembers, useRunCollector, useSourceHealth } from "@/services/queries";
+import { useAdminStatus, useDemoReset, useHealth, useMembers, useRunCollector, useSourceHealth } from "@/services/queries";
+import { actionErrorMessage } from "@/lib/api";
 import { formatDate, formatDateTime } from "@/lib/utils";
 
 const useAdminToken = () => useSyncExternalStore(subscribe, getAdminToken, getAdminToken);
@@ -121,12 +122,15 @@ export function SettingsPage() {
   const token = useAdminToken();
   const [value, setValue] = useState("");
   const reset = useDemoReset();
+  // The reset is offered only when the API has confirmed that the stored admin token is valid (never from DEMO_MODE).
+  const admin = useAdminStatus(!!token);
+  const serverHasAdmin = health.data?.admin_actions_enabled !== false;
   return (
     <div className="space-y-6">
       <PageHeader eyebrow="Workspace" title="Settings" />
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
-          <CardHeader icon={<KeyRound className="size-4" />} title="Admin token" subtitle="Required to run collectors. Kept in this browser session only; never sent anywhere except the VSP API." />
+          <CardHeader icon={<KeyRound className="size-4" />} title="Admin token" subtitle="Required to run collectors and to reset the demo. Kept in this browser session only; never sent anywhere except the VSP API." />
           <CardBody className="space-y-3">
             {token ? <div className="flex items-center gap-2 text-[13px] text-ink"><CheckCircle2 className="size-4 text-good" />Admin token set for this session.<Button size="sm" variant="ghost" onClick={() => setAdminToken(null)}>Remove</Button></div> : (
               <form onSubmit={(e) => { e.preventDefault(); if (value) setAdminToken(value); setValue(""); }} className="flex gap-2">
@@ -134,23 +138,27 @@ export function SettingsPage() {
                 <Button type="submit">Save</Button>
               </form>
             )}
-            {health.data && !health.data.admin_actions_enabled && <p className="text-[12.5px] text-ink-3">The server has no ADMIN_TOKEN configured, so collectors are disabled.</p>}
+            {health.data && !health.data.admin_actions_enabled && <p className="text-[12.5px] text-ink-3">The server has no ADMIN_TOKEN configured, so collectors and the demo reset are disabled.</p>}
           </CardBody>
         </Card>
         <Card>
-          <CardHeader icon={<RotateCcw className="size-4" />} title="Demo reset" subtitle="Removes profile edits, reviews, priorities and saved items for all workspaces. Collected source data is kept." />
+          <CardHeader icon={<RotateCcw className="size-4" />} title="Demo reset" subtitle="Admin only. Removes profile edits, reviews, priorities and saved items for all workspaces. Collected source data is kept." />
           <CardBody className="space-y-3">
-            <Button variant="outline" loading={reset.isPending} onClick={() => reset.mutate()} icon={<RotateCcw className="size-4" />}>Reset demo workspace</Button>
+            {!serverHasAdmin ? <p className="text-[13px] text-ink-3">Not available: the server has no admin token configured.</p>
+              : !token ? <p className="text-[13px] text-ink-3">The reset requires the admin token. Add it in the Admin token card to enable it.</p>
+                : admin.isLoading ? <p className="text-[13px] text-ink-3">Checking the admin token…</p>
+                  : admin.data?.is_admin ? (
+                    <Button variant="outline" loading={reset.isPending} onClick={() => reset.mutate()} icon={<RotateCcw className="size-4" />}>Reset demo workspace</Button>
+                  ) : <p role="alert" className="text-[13px] text-critical">The saved admin token was not accepted. Remove it and enter the correct token.</p>}
             {reset.isSuccess && <p role="status" className="text-[13px] text-good">Workspace reset to a clean state.</p>}
-            {reset.isError && <p role="alert" className="text-[13px] text-critical">{(reset.error as Error).message}</p>}
-            {health.data && !health.data.demo_mode && <p className="text-[12.5px] text-ink-3">Demo mode is off: reset requires the admin token.</p>}
+            {reset.isError && <p role="alert" className="text-[13px] text-critical">Reset failed. {actionErrorMessage(reset.error)}</p>}
           </CardBody>
         </Card>
         <Card className="lg:col-span-2">
           <CardHeader icon={<Users className="size-4" />} title="System" />
           <CardBody className="grid gap-3 text-[13px] sm:grid-cols-4">
             <div><div className="text-ink-3">API</div><div className="font-medium text-ink">{health.data?.status ?? "…"} · v{health.data?.version}</div></div>
-            <div><div className="text-ink-3">Demo mode</div><div className="font-medium text-ink">{health.data?.demo_mode ? "On (password-free demo login)" : "Off"}</div></div>
+            <div><div className="text-ink-3">Demo mode</div><div className="font-medium text-ink">{health.data?.demo_mode ? "On (password-free, read-only demo login)" : "Off"}</div></div>
             <div><div className="text-ink-3">LLM</div><div className="font-medium text-ink">{health.data?.llm.enabled ? `Enabled (${health.data.llm.provider})` : "Not configured — deterministic only"}</div></div>
             <div><div className="text-ink-3">Reference date</div><div className="font-medium text-ink">{health.data?.today}</div></div>
           </CardBody>

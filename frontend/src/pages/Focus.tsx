@@ -2,18 +2,20 @@ import { motion } from "framer-motion";
 import { ArrowRight, Bookmark, CalendarClock, Clock3, Cpu, MapPin, Sparkles, Users } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useWorkspace } from "@/app/workspace";
+import { READ_ONLY_HINT, useReadOnly, useWorkspace } from "@/app/workspace";
 import { Badge, Button, Card, CardBody, CardHeader, EmptyState, ErrorState, LoadingBlock, PageHeader } from "@/components/ui/primitives";
 import { BandBadge, DeadlineBadge, LocationBadges, RingBadge, SourceLink, TierBadge } from "@/components/shared/badges";
 import { PriorityEditor } from "@/features/priorities";
 import { OpportunityDrawer } from "@/features/opportunity";
 import { useFocus, useRecAction } from "@/services/queries";
+import { actionErrorMessage } from "@/lib/api";
 import type { OppCard } from "@/types/api";
 
 export default function Focus() {
   const { companyId } = useWorkspace();
   const q = useFocus(companyId);
   const act = useRecAction(companyId);
+  const readOnly = useReadOnly();
   const [openOpp, setOpenOpp] = useState<number | null>(null);
   if (q.isLoading) return <LoadingBlock rows={5} label="Finding your opportunities" />;
   if (q.isError) return <ErrorState error={q.error} onRetry={() => q.refetch()} />;
@@ -50,11 +52,12 @@ export default function Focus() {
                   <div className="mt-auto flex flex-wrap items-center gap-2 pt-4 text-[13px]">
                     {r.source && <SourceLink href={r.source.url}>{r.source.label}</SourceLink>}
                     <Button size="sm" variant={r.status === "saved" ? "subtle" : "outline"} className="ml-auto" icon={<Bookmark className="size-3.5" />}
-                      loading={act.isPending && act.variables?.recId === r.id}
+                      loading={act.isPending && act.variables?.recId === r.id} disabled={readOnly} title={readOnly ? READ_ONLY_HINT : undefined}
                       onClick={() => act.mutate({ recId: r.id, action: r.status === "saved" ? "restore" : "save" })}>
                       {r.status === "saved" ? "Saved" : "Save"}
                     </Button>
                   </div>
+                  {act.isError && act.variables?.recId === r.id && <p role="alert" className="mt-2 text-[12.5px] text-critical">Could not update this recommendation. {actionErrorMessage(act.error)}</p>}
                 </Card>
               </motion.div>
             ))}

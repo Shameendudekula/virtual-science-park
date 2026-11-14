@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  Bell, BookOpen, Building2, ChevronDown, Compass, Cpu, Database, FileText, GitCompareArrows, LayoutDashboard, LogOut, Menu,
+  Bell, BookOpen, Building2, ChevronDown, Compass, Cpu, Database, Eye, FileText, GitCompareArrows, LayoutDashboard, LogOut, Menu,
   Network, Search, Settings, Sparkles, Target, Users, X,
 } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { useWorkspace } from "@/app/workspace";
+import { useReadOnly, useWorkspace } from "@/app/workspace";
 import { Badge } from "@/components/ui/primitives";
 import { useCompanies, useCompany, useHealth, useNotifications } from "@/services/queries";
 import { cn, formatDateTime } from "@/lib/utils";
@@ -181,6 +181,7 @@ function Notifications() {
 
 export function AppShell() {
   const { companyId, companyName, signOut } = useWorkspace();
+  const readOnly = useReadOnly();
   const [mobileOpen, setMobileOpen] = useState(false);
   const health = useHealth();
   const company = useCompany(companyId);
@@ -225,6 +226,13 @@ export function AppShell() {
           </div>
         </header>
         <main id="main" className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6 md:px-8 md:py-8">
+          {readOnly && (
+            <div role="note" className="no-print mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border border-line bg-white px-4 py-2.5 text-[13px] text-ink-2">
+              <Eye className="size-4 shrink-0 text-brand" aria-hidden />
+              <span><span className="font-medium text-ink">Read-only demo.</span> Explore everything; editing the profile, priorities or saved items needs the company's sign-in.</span>
+              <Link to={`/login?company=${companyId}`} className="font-medium text-brand hover:underline">Sign in to edit</Link>
+            </div>
+          )}
           <Outlet />
         </main>
       </div>

@@ -21,8 +21,8 @@ from app.models import (
     Technology,
 )
 from app.schemas.api import RecommendationAction
-from app.security.auth import Principal, PrincipalDep, require_company
-from app.security.deps import rate_limit, require_admin, require_admin_unless_demo
+from app.security.auth import Principal, PrincipalDep, require_company, require_company_write
+from app.security.deps import rate_limit, require_admin, write_rate_limit
 from app.services.intelligence.profile import build_profile, load_company
 from app.services.matching.opportunity_matching import score_opportunity
 
@@ -174,16 +174,16 @@ def notifications(db: Session = Depends(get_db)) -> list[dict]:
 
 
 # --------------------------------------------------------------------------------------------- recommendations
-def _rec(db: Session, rec_id: int, principal: Principal) -> Recommendation:
+def _rec(db: Session, rec_id: int, principal: Principal, *, write: bool = False) -> Recommendation:
     r = db.get(Recommendation, rec_id)
     if r is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"Recommendation {rec_id} not found")
-    require_company(r.company_id, principal)
+    (require_company_write if write else require_company)(r.company_id, principal)
     return r
 
 
 def _set_status(db: Session, rec_id: int, new_status: str, note: str | None, principal: Principal) -> dict:
-    r = _rec(db, rec_id, principal)
+    r = _rec(db, rec_id, principal, write=True)
     r.status = new_status
     r.status_changed_at = utcnow()
     saved = db.scalar(select(SavedRecommendation).where(SavedRecommendation.recommendation_id == r.id))
@@ -214,24 +214,27 @@ def get_recommendation(recommendation_id: int, db: Session = Depends(get_db), pr
     return d
 
 
-@router.post("/recommendations/{recommendation_id}/save", tags=["recommendations"])
+_WRITE_LIMIT = Depends(write_rate_limit(30, 60))  # each change recomputes rankings; refused attempts use a separate bucket
+
+
+@router.post("/recommendations/{recommendation_id}/save", tags=["recommendations"], dependencies=[_WRITE_LIMIT])
 def save_recommendation(recommendation_id: int, body: RecommendationAction | None = None, db: Session = Depends(get_db),
                            principal: Principal = PrincipalDep) -> dict:
     return _set_status(db, recommendation_id, "saved", body.note if body else None, principal)
 
 
-@router.post("/recommendations/{recommendation_id}/dismiss", tags=["recommendations"])
+@router.post("/recommendations/{recommendation_id}/dismiss", tags=["recommendations"], dependencies=[_WRITE_LIMIT])
 def dismiss_recommendation(recommendation_id: int, body: RecommendationAction | None = None, db: Session = Depends(get_db),
                            principal: Principal = PrincipalDep) -> dict:
     return _set_status(db, recommendation_id, "dismissed", body.note if body else None, principal)
 
 
-@router.post("/recommendations/{recommendation_id}/explore", tags=["recommendations"], summary="Mark as explored")
+@router.post("/recommendations/{recommendation_id}/explore", tags=["recommendations"], summary="Mark as explored", dependencies=[_WRITE_LIMIT])
 def explore_recommendation(recommendation_id: int, db: Session = Depends(get_db), principal: Principal = PrincipalDep) -> dict:
     return _set_status(db, recommendation_id, "explored", None, principal)
 
 
-@router.post("/recommendations/{recommendation_id}/restore", tags=["recommendations"], summary="Return to open")
+@router.post("/recommendations/{recommendation_id}/restore", tags=["recommendations"], summary="Return to open", dependencies=[_WRITE_LIMIT])
 def restore_recommendation(recommendation_id: int, db: Session = Depends(get_db), principal: Principal = PrincipalDep) -> dict:
     return _set_status(db, recommendation_id, "open", None, principal)
 
@@ -259,19 +262,31 @@ def get_evidence(evidence_id: int, db: Session = Depends(get_db)) -> dict:
             dependencies=[Depends(rate_limit("search", 60, 60))])
 def search(q: str = Query(..., min_length=2, max_length=300), company_id: int | None = None, db: Session = Depends(get_db),
            principal: Principal = PrincipalDep) -> dict:
-    """Company-specific answers (and question history) require that company's workspace session."""
+    """Company-specific answers (and question history) require that company's workspace session.
+
+    Every question is first checked against the service boundaries (deterministic rules, no LLM); only requests within
+    the service's purpose reach the search."""
     from app.models import SearchHistory
+    from app.services.intelligence.boundaries import classify, declined_response
     from app.services.intelligence.search import run
 
     if company_id is not None:
         require_company(company_id, principal)
-    result = run(db, q, company_id, viewer_id=principal.company_id)
-    named = result["query"]["company_id"]
-    if named is not None and not principal.can_access(named):
-        result = run(db, q, None, viewer_id=principal.company_id, public_only=True)
-        result["note"] += " Company-specific ranking is only available inside that company's workspace; showing public results."
-    if principal.company_id:
-        db.add(SearchHistory(company_id=principal.company_id, query=q[:300], intent=result["query"]["intent"],
+    boundary = classify(q)
+    if not boundary.runs_search:
+        result = declined_response(q, boundary)
+    else:
+        result = run(db, q, company_id, viewer_id=principal.company_id)
+        named = result["query"]["company_id"]
+        if named is not None and not principal.can_access(named):
+            result = run(db, q, None, viewer_id=principal.company_id, public_only=True)
+            result["note"] += " Company-specific ranking is only available inside that company's workspace; showing public results."
+        result["boundary"] = boundary.as_dict()
+    # History is private company data: only password sessions record it (a public demo session shares one workspace
+    # with every visitor, so recording there would show one visitor's questions to the next).
+    if principal.company_id and principal.can_write:
+        intent = result["query"]["intent"] if boundary.runs_search else f"{boundary.handling}:{boundary.category}"
+        db.add(SearchHistory(company_id=principal.company_id, query=q[:300], intent=intent[:32],
                              result_count=result["count"], created_at=utcnow()))
         db.commit()
     return result
@@ -283,13 +298,16 @@ def search_history(db: Session = Depends(get_db), principal: Principal = Princip
 
     if principal.company_id is None:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Sign in to a company workspace to see its question history.")
+    if not principal.can_write:
+        raise HTTPException(status.HTTP_403_FORBIDDEN, "Question history is private and is not available in a read-only demo session. "
+                                                       "Sign in with the company's username and password to see it.")
     rows = db.scalars(select(SearchHistory).where(SearchHistory.company_id == principal.company_id)
                       .order_by(SearchHistory.created_at.desc()).limit(15))
     return [{"id": r.id, "query": r.query, "intent": r.intent, "result_count": r.result_count, "created_at": r.created_at.isoformat()} for r in rows]
 
 
-@router.post("/demo/reset", tags=["system"], summary="Reset the demo workspace (keeps collected source data)",
-             dependencies=[Depends(require_admin_unless_demo), Depends(rate_limit("reset", 10, 60))])
+@router.post("/demo/reset", tags=["system"], summary="Reset the demo workspace (admin token required; keeps collected source data)",
+             dependencies=[Depends(require_admin), Depends(rate_limit("reset", 10, 60))])
 def demo_reset(db: Session = Depends(get_db)) -> dict:
     from app.seed.loader import reset_demo
 

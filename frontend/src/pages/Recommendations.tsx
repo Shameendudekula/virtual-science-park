@@ -1,12 +1,13 @@
 import { Bookmark, CheckCircle2, Compass, EyeOff, FileText, Lightbulb, RotateCcw, Target } from "lucide-react";
 import { useMemo, useState } from "react";
-import { useWorkspace } from "@/app/workspace";
+import { READ_ONLY_HINT, useReadOnly, useWorkspace } from "@/app/workspace";
 import { Badge, Button, Card, Drawer, EmptyState, ErrorState, LoadingBlock, PageHeader, Tabs } from "@/components/ui/primitives";
 import { ClaimTypeBadge, SourceLink, TierBadge } from "@/components/shared/badges";
 import { CriteriaBreakdown, EvidencePanel, MatchedConcepts, Section, Uncertainty } from "@/components/shared/explain";
 import { PriorityEditor } from "@/features/priorities";
 import { useProfile, useRecAction, useRecommendation, useRecommendations } from "@/services/queries";
 import type { Recommendation, Tier } from "@/types/api";
+import { actionErrorMessage } from "@/lib/api";
 import { cn, formatDate } from "@/lib/utils";
 
 const KIND_LABEL: Record<string, string> = {
@@ -20,6 +21,7 @@ export default function Recommendations() {
   const q = useRecommendations(companyId);
   const profile = useProfile(companyId);
   const act = useRecAction(companyId);
+  const readOnly = useReadOnly();
   const [status, setStatus] = useState<StatusFilter>("active");
   const [open, setOpen] = useState<number | null>(null);
   const items = useMemo(() => (q.data?.items ?? []).filter((r) => (status === "active" ? r.status === "open" || r.status === "saved" : r.status === status)), [q.data, status]);
@@ -66,7 +68,8 @@ export default function Recommendations() {
               <section key={tier} aria-labelledby={`tier-${tier}`}>
                 <h2 id={`tier-${tier}`} className="mb-2 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-ink-3"><TierBadge tier={tier} />{list.length}</h2>
                 <ul className="space-y-3">
-                  {list.map((r) => <RecCard key={r.id} r={r} onOpen={() => setOpen(r.id)} onAction={(a) => act.mutate({ recId: r.id, action: a })} busy={act.isPending && act.variables?.recId === r.id} />)}
+                  {list.map((r) => <RecCard key={r.id} r={r} onOpen={() => setOpen(r.id)} onAction={(a) => act.mutate({ recId: r.id, action: a })} busy={act.isPending && act.variables?.recId === r.id} readOnly={readOnly}
+                    error={act.isError && act.variables?.recId === r.id ? actionErrorMessage(act.error) : undefined} />)}
                 </ul>
               </section>
             );
@@ -81,7 +84,9 @@ export default function Recommendations() {
   );
 }
 
-function RecCard({ r, onOpen, onAction, busy }: { r: Recommendation; onOpen: () => void; onAction: (a: "save" | "dismiss" | "explore" | "restore") => void; busy: boolean }) {
+function RecCard({ r, onOpen, onAction, busy, readOnly, error }: { r: Recommendation; onOpen: () => void; onAction: (a: "save" | "dismiss" | "explore" | "restore") => void; busy: boolean; readOnly: boolean; error?: string }) {
+  const lock = busy || readOnly;
+  const why = readOnly ? READ_ONLY_HINT : undefined;
   return (
     <li>
       <Card className={cn("p-4 transition hover:shadow-[var(--shadow-lift)]", r.status === "dismissed" && "opacity-70")}>
@@ -98,11 +103,12 @@ function RecCard({ r, onOpen, onAction, busy }: { r: Recommendation; onOpen: () 
         <p className="mt-1.5 text-[13px] text-ink-2"><span className="font-medium text-ink">Next: </span>{r.detail.next_step}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           <Button size="sm" variant="subtle" icon={<FileText className="size-3.5" />} onClick={onOpen}>Why this?</Button>
-          {r.status !== "saved" && r.status !== "dismissed" && <Button size="sm" variant="outline" icon={<Bookmark className="size-3.5" />} onClick={() => onAction("save")} disabled={busy}>Save</Button>}
-          {r.status !== "explored" && r.status !== "dismissed" && <Button size="sm" variant="outline" icon={<CheckCircle2 className="size-3.5" />} onClick={() => onAction("explore")} disabled={busy}>Mark explored</Button>}
-          {r.status !== "dismissed" ? <Button size="sm" variant="ghost" icon={<EyeOff className="size-3.5" />} onClick={() => onAction("dismiss")} disabled={busy}>Dismiss</Button>
-            : <Button size="sm" variant="ghost" icon={<RotateCcw className="size-3.5" />} onClick={() => onAction("restore")} disabled={busy}>Restore</Button>}
+          {r.status !== "saved" && r.status !== "dismissed" && <Button size="sm" variant="outline" icon={<Bookmark className="size-3.5" />} onClick={() => onAction("save")} disabled={lock} title={why}>Save</Button>}
+          {r.status !== "explored" && r.status !== "dismissed" && <Button size="sm" variant="outline" icon={<CheckCircle2 className="size-3.5" />} onClick={() => onAction("explore")} disabled={lock} title={why}>Mark explored</Button>}
+          {r.status !== "dismissed" ? <Button size="sm" variant="ghost" icon={<EyeOff className="size-3.5" />} onClick={() => onAction("dismiss")} disabled={lock} title={why}>Dismiss</Button>
+            : <Button size="sm" variant="ghost" icon={<RotateCcw className="size-3.5" />} onClick={() => onAction("restore")} disabled={lock} title={why}>Restore</Button>}
         </div>
+        {error && <p role="alert" className="mt-2 text-[12.5px] text-critical">Could not update this recommendation. {error}</p>}
       </Card>
     </li>
   );

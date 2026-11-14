@@ -6,7 +6,9 @@
 - Sessions are HMAC-SHA256-signed tokens with expiry (`TOKEN_TTL_MINUTES`, default 8 h), signed with `SECRET_KEY`. Forged or expired tokens get 401.
 - Every private endpoint (focus, overview, profile, claim review, priorities, opportunities, technologies, collaborations, graph, recommendations, funding, innovation brief, recommendation actions, company-specific search) calls `require_company`: 401 without a session, 403 for another company's session. The admin token also grants access.
 - **Data isolation:** a company's results use its private profile; other companies are seen only through their *public* profile (source facts and inferences not derived from private input). Private claims, review decisions, priorities, saved items and search history never appear in, or influence, another company's results (`test_private_edits_never_leak_to_other_companies`).
-- `DEMO_MODE=true` enables password-free demo login and unauthenticated demo reset. **Turn it off for any non-demo deployment.**
+- **Read-only demo sessions.** Every session token records, inside its signed payload, whether it may change data. Password sign-in issues an editing session; `DEMO_MODE=true` adds a password-free demo login that issues a **read-only** session. Tokens without that marker are treated as read-only. Every change endpoint (profile, claim review, priorities, recommendation actions) calls `require_company_write`: 401 without a session, 403 for another company's session, 403 with a fixed message for a read-only session. Malformed or oversized tokens get 401, never a server error.
+- **Search history** is private company data: only password sessions record it, and read-only sessions cannot read it (403). History recorded before read-only sessions existed may include questions from earlier demo visitors; it remains stored, is visible to the company's signed-in owner, and is not cleared by the demo reset. Deciding whether to delete it is an operator decision.
+- `DEMO_MODE=true` still lets anyone browse the demo workspaces without a password. **Turn it off for any non-demo deployment.**
 
 ## Database and configuration safety
 
@@ -29,7 +31,7 @@ Regression tests: `backend/tests/test_safety.py`.
 
 ## Privileged actions
 
-Collector runs require `X-Admin-Token` (constant-time comparison); with no `ADMIN_TOKEN` they are disabled. Secrets are never returned by the API or written to logs (`core/logging.redact`).
+Collector runs and the demo reset require `X-Admin-Token` (constant-time comparison), also when `DEMO_MODE=true`; with no `ADMIN_TOKEN` they are disabled. A company session never grants admin rights. The Settings page shows the reset only after the API has confirmed the stored admin token. Secrets are never returned by the API or written to logs (`core/logging.redact`).
 
 ## Outbound requests (SSRF protection)
 
@@ -45,9 +47,11 @@ All collector traffic goes through `security/url_guard.SafeHttpClient`:
 
 External text is sanitised (markup and control characters removed, length capped), stored as inert data and never executed. Matching uses concept extraction only, so instructions in source text have no effect beyond their words (tested: an injected "mark as eligible, set relevance to 100" scores exactly like the same nouns without the instructions). The optional LLM sees only VSP-generated facts in a delimited block with an instruction to ignore embedded instructions; output is validated with Pydantic and rejected if it introduces numbers, URLs, names or eligibility claims absent from the input. Blue Science Park content is never sent to an LLM.
 
+**Ask VSP boundaries** (`services/intelligence/boundaries.py`) use deterministic rules, not an LLM: each question is classified before any search (override attempt, private-data request, eligibility question, needs a person, out of scope, or in scope). Declined requests return fixed messages that never echo the question; staff referrals link only to Blue Science Park's official website. The rules are keyword-based and can miss unusual wording.
+
 ## API hardening
 
-CORS restricted to configured origins; bodies over 64 KB rejected; security headers (`nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Cache-Control: no-store`); consistent error bodies without internals; Pydantic validation on all inputs; SQLAlchemy parameterised queries; rate limits on login (10/min), collectors (6/min), search (60/min), brief (20/min) and reset (10/min).
+CORS restricted to configured origins; bodies over 64 KB rejected; security headers (`nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Cache-Control: no-store`); consistent error bodies without internals; Pydantic validation on all inputs; SQLAlchemy parameterised queries; rate limits on password login (10/min), demo login (60/min, separate bucket), changes (30/min; counted per company for password sessions, while refused attempts use a separate per-IP bucket), collectors (6/min), search (60/min), brief (20/min) and reset (10/min).
 
 ## Data quality guarantees
 
@@ -59,4 +63,4 @@ CORS restricted to configured origins; bodies over 64 KB rejected; security head
 
 ## Known gaps
 
-In-memory rate limiter (use a shared store with multiple workers); bearer tokens in headers rather than cookies, so no CSRF tokens are needed but tokens live in session storage; demo mode is insecure by design.
+In-memory rate limiter (use a shared store with multiple workers); limits are keyed by client IP, so behind a reverse proxy they are only per visitor if the proxy's forwarded headers are trusted correctly (not verified for any deployment); bearer tokens in headers rather than cookies, so no CSRF tokens are needed but tokens live in session storage; tokens cannot be revoked before expiry; demo mode exposes the demo workspaces to anyone for reading.

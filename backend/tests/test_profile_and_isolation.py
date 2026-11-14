@@ -9,12 +9,12 @@ from app.models.company import SourceFactImmutableError
 from app.services.intelligence.enrichment import run_inference
 from app.services.recommendations.pipeline import Workspace
 from tests.conftest import company_id
+from tests.sessions import password_headers
 
 
 def _login(client, slug, db):
-    r = client.post("/api/auth/demo-login", json={"company_id": company_id(db, slug)})
-    assert r.status_code == 200
-    return {"Authorization": f"Bearer {r.json()['token']}"}
+    """A password session: these tests change company data, which read-only demo sessions cannot."""
+    return password_headers(client, db, slug)
 
 
 def test_private_workspace_requires_that_companys_session(client, db):

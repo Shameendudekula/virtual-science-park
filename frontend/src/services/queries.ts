@@ -119,15 +119,21 @@ export function useRecAction(id?: number) {
 export function useRunCollector() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: ({ key, mode }: { key: string; mode: "live" | "snapshot" }) => post<CollectionRun & { message: string }>(`/api/collectors/${key}/run?mode=${mode}`, undefined, { admin: true }),
+    mutationFn: ({ key, mode }: { key: string; mode: "live" | "snapshot" }) => post<CollectionRun & { message: string }>(`/api/collectors/${key}/run?mode=${mode}`, undefined, { adminOnly: true }),
     onSuccess: () => qc.invalidateQueries(),
   });
 }
 
 export function useDemoReset() {
   const qc = useQueryClient();
-  return useMutation({ mutationFn: () => post<{ status: string }>("/api/demo/reset", undefined, { admin: true }), onSuccess: () => qc.invalidateQueries() });
+  return useMutation({ mutationFn: () => post<{ status: string }>("/api/demo/reset", undefined, { adminOnly: true }), onSuccess: () => qc.invalidateQueries() });
 }
+
+/** Whether the server accepts the admin token stored in this browser session (checked by the API, never guessed).
+ * The token itself is never part of the query key. */
+export const useAdminStatus = (hasToken: boolean) =>
+  useQuery({ queryKey: ["admin-status", hasToken], enabled: hasToken, retry: false, staleTime: 0,
+    queryFn: () => api<{ is_admin: boolean }>("/api/auth/me", { admin: true }) });
 
 // --------------------------------------------------------------------- brief & compare
 export interface BriefResponse {
