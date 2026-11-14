@@ -28,5 +28,5 @@ sys.exit("[vsp] database did not become ready")
 PY
 echo "[vsp] applying migrations..."
 alembic upgrade head
-echo "[vsp] starting API on :8000 (seeds automatically on first start)"
-exec uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers
+echo "[vsp] starting API on :${PORT:-8000} (seeds automatically on first start)"
+exec uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-8000}" --proxy-headers
