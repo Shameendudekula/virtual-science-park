@@ -27,7 +27,7 @@ export default function Landing() {
           <div className="flex items-center gap-2.5"><Logo /><span className="text-[15px] font-semibold">Virtual Science Park</span></div>
           <nav className="flex items-center gap-2">
             <Link to="/login" className="rounded-lg px-3 py-2 text-[13.5px] text-slate-300 hover:text-white">Sign in</Link>
-            <Button onClick={start} disabled={!demo.length} size="sm">Open live demo</Button>
+            <Button onClick={start} disabled={!demo.length} size="sm">Open the demo</Button>
           </nav>
         </div>
         <section className="relative overflow-hidden">
@@ -48,7 +48,7 @@ export default function Landing() {
               </ul>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
-              <div className="text-[12px] font-semibold uppercase tracking-wider text-slate-400">Live dataset in this demo</div>
+              <div className="text-[12px] font-semibold uppercase tracking-wider text-slate-400">Dataset in this demo · collected snapshot</div>
               <dl className="mt-4 grid grid-cols-2 gap-4">
                 <Metric label="Blue Science Park members verified" value={counts ? counts.companies_profiled + counts.companies_directory : "—"} />
                 <Metric label="Opportunity & ecosystem records" value={counts?.opportunities ?? "—"} />

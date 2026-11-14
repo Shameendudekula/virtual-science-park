@@ -3,7 +3,7 @@ import { Check, ChevronDown, Clock, History, Lightbulb, MapPin, Pencil, Plus, Ro
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useWorkspace } from "@/app/workspace";
+import { READ_ONLY_HINT, useReadOnly, useWorkspace } from "@/app/workspace";
 import { Badge, Button, Card, CardBody, CardHeader, ErrorState, Field, LoadingBlock, PageHeader, inputClass } from "@/components/ui/primitives";
 import { ClaimTypeBadge, SourceLink } from "@/components/shared/badges";
 import { EvidenceItem } from "@/components/shared/explain";
@@ -142,7 +142,8 @@ function ClaimRow({ claim, companyId, onChanges }: { claim: Claim; companyId: nu
     onChanges(res.ranking_changes);
     setEditing(false);
   };
-  const busy = review.isPending || patch.isPending;
+  const readOnly = useReadOnly();
+  const busy = review.isPending || patch.isPending || readOnly;
   return (
     <div className={cn("rounded-xl border p-3.5", inactive ? "border-dashed border-line-2 bg-slate-50/70" : "border-line")}>
       <div className="flex flex-wrap items-start justify-between gap-2">
@@ -184,6 +185,7 @@ function ClaimRow({ claim, companyId, onChanges }: { claim: Claim; companyId: nu
 
 function AddClaim({ companyId, onChanges }: { companyId: number; onChanges: (c: RankingChange[]) => void }) {
   const patch = usePatchProfile(companyId);
+  const readOnly = useReadOnly();
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { field: "business_focus", value: "", label: "" } });
   const onSubmit = async (v: FormValues) => {
     const res = await patch.mutateAsync({ add_claims: [{ field: v.field, value: v.value, label: v.label || undefined }] });
@@ -206,7 +208,8 @@ function AddClaim({ companyId, onChanges }: { companyId: number; onChanges: (c: 
           </Field>
           {errors.value && <p role="alert" className="text-[12.5px] text-critical">{errors.value.message}</p>}
           {patch.isError && <p role="alert" className="text-[12.5px] text-critical">{(patch.error as Error).message}</p>}
-          <Button type="submit" loading={patch.isPending} className="w-full">Add and recompute</Button>
+          <Button type="submit" loading={patch.isPending} disabled={readOnly} title={readOnly ? READ_ONLY_HINT : undefined} className="w-full">Add and recompute</Button>
+          {readOnly && <p className="text-[12.5px] text-ink-3">{READ_ONLY_HINT}</p>}
         </form>
       </CardBody>
     </Card>

@@ -13,5 +13,5 @@ COPY docker-entrypoint.sh ./
 RUN chmod +x docker-entrypoint.sh && useradd --create-home --uid 10001 vsp && chown -R vsp /app
 USER vsp
 EXPOSE 8000
-HEALTHCHECK --interval=10s --timeout=5s --start-period=40s --retries=6 CMD-SHELL curl -fsS "http://localhost:${PORT:-8000}/api/health" || exit 1
+HEALTHCHECK --interval=10s --timeout=5s --start-period=40s --retries=6 CMD ["sh", "-c", "curl -fsS http://localhost:${PORT:-8000}/api/health || exit 1"]
 ENTRYPOINT ["./docker-entrypoint.sh"]

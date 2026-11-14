@@ -2,6 +2,8 @@ export interface Session {
   token: string;
   expires_at: number;
   company: { id: number; name: string; slug: string };
+  /** True for password-free demo sessions. The API enforces it; the UI only explains it and disables edit controls. */
+  read_only?: boolean;
 }
 
 const KEY = "vsp.session";

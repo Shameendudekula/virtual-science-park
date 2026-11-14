@@ -1,5 +1,5 @@
-import { CalendarRange, ExternalLink, Filter, Landmark, LayoutGrid, Map as MapIcon, Search } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Building2, CalendarDays, CalendarRange, ExternalLink, Filter, Landmark, LayoutGrid, Map as MapIcon, Search, Users } from "lucide-react";
+import { Fragment, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { useWorkspace } from "@/app/workspace";
@@ -9,7 +9,7 @@ import { RegionalMap, type RegionalItem } from "@/components/charts/RegionalMap"
 import { OpportunityCard, OpportunityDrawer } from "@/features/opportunity";
 import { useCollaborations, useFunding, useOpportunities } from "@/services/queries";
 import type { Opportunity } from "@/types/api";
-import { formatDate, titleCase } from "@/lib/utils";
+import { deadlineGroup, formatDate, parseDate, sortByDeadline, titleCase, type DeadlineGroup } from "@/lib/utils";
 
 const CATEGORY_OPTIONS = [
   ["", "All categories"], ["funding_call", "Funding calls"], ["innovation_programme", "Innovation programmes"], ["research_funding", "Research funding"],
@@ -17,7 +17,7 @@ const CATEGORY_OPTIONS = [
   ["event", "Events"], ["ecosystem_news", "Ecosystem news"],
 ] as const;
 const REGIONS = [["", "All regions"], ["karlskrona", "Karlskrona"], ["blekinge", "Blekinge"], ["sweden", "Sweden"], ["europe", "Europe"], ["international", "International"], ["online", "Online"]] as const;
-type View = "cards" | "map" | "timeline" | "funding";
+type View = "cards" | "map" | "timeline" | "funding" | "events";
 
 const CRITERIA_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6"];
 
@@ -75,11 +75,13 @@ export default function Opportunities() {
           items={[{ value: "cards", label: <span className="inline-flex items-center gap-1.5"><LayoutGrid className="size-3.5" />Cards</span>, count: q.data?.total },
                   { value: "map", label: <span className="inline-flex items-center gap-1.5"><MapIcon className="size-3.5" />Regional map</span> },
                   { value: "timeline", label: <span className="inline-flex items-center gap-1.5"><CalendarRange className="size-3.5" />Deadline timeline</span> },
-                  { value: "funding", label: <span className="inline-flex items-center gap-1.5"><Landmark className="size-3.5" />Unified funding</span> }]} />
+                  { value: "funding", label: <span className="inline-flex items-center gap-1.5"><Landmark className="size-3.5" />Unified funding</span> },
+                  { value: "events", label: <span className="inline-flex items-center gap-1.5"><CalendarDays className="size-3.5" />Events</span> }]} />
         {q.isFetching && !q.isLoading && <span className="text-[12px] text-ink-3">Updating…</span>}
       </div>
 
       {view === "funding" ? <FundingView companyId={companyId} onOpen={setOpenId} /> :
+        view === "events" ? <EventsView companyId={companyId} search={sp.get("q") ?? ""} region={sp.get("region") ?? ""} onOpen={setOpenId} /> :
         q.isLoading ? <LoadingBlock rows={4} /> : q.isError ? <ErrorState error={q.error} onRetry={() => q.refetch()} /> :
           q.data!.items.length === 0 ? <EmptyState title="No opportunities match these filters" description="Lower the minimum relevance or clear filters. Closed calls and news are hidden by default." /> :
             view === "cards" ? <CardsView items={q.data!.items} onOpen={setOpenId} /> :
@@ -208,11 +210,83 @@ function TimelineView({ items, onOpen }: { items: Opportunity[]; onOpen: (id: nu
   );
 }
 
+/**
+ * Event discovery limited to what the collected data supports. The collected event records contain only a title,
+ * the source's listing (publication) date and the official link, so event dates, venues, organisers, sponsors,
+ * exhibitors, speakers and logos are stated as unavailable rather than guessed.
+ */
+function EventsView({ companyId, search, region, onOpen }: { companyId: number; search: string; region: string; onOpen: (id: number) => void }) {
+  const params = useMemo(() => {
+    const p = new URLSearchParams({ category: "event", min_score: "0", include_closed: "true", page_size: "100" });
+    if (search) p.set("q", search);
+    if (region) p.set("region", region);
+    return p;
+  }, [search, region]);
+  const q = useOpportunities(companyId, params);
+  // Newest listing first (event dates are not collected); copied, never mutating the cached response.
+  const sorted = useMemo(() => [...(q.data?.items ?? [])].sort((a, b) => (parseDate(b.published_at)?.getTime() ?? 0) - (parseDate(a.published_at)?.getTime() ?? 0)), [q.data]);
+  if (q.isLoading) return <LoadingBlock rows={3} />;
+  if (q.isError) return <ErrorState error={q.error} onRetry={() => q.refetch()} />;
+  if (sorted.length === 0) return <EmptyState title="No events in the collected data" description="Clear the search or region filter to see all collected event listings." />;
+  const groups: [string, Opportunity[]][] = [
+    ["Listed in the last 4 months", sorted.filter((o) => o.timeliness.recent)],
+    ["Older listings — may have passed", sorted.filter((o) => !o.timeliness.recent)],
+  ];
+  return (
+    <div className="space-y-5">
+      <div className="flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50/60 px-4 py-3 text-[13px] text-ink-2">
+        <CalendarDays className="mt-0.5 size-4 shrink-0 text-amber-700" aria-hidden />
+        <span>Event dates, organisers and sponsors are not in the collected event data, so no event is shown as upcoming. Listings are sorted by the date the source published them. Open the official page for current details.</span>
+      </div>
+      {groups.map(([heading, list]) => list.length > 0 && (
+        <section key={heading} aria-label={heading}>
+          <h2 className="mb-2 text-[12px] font-semibold uppercase tracking-wide text-ink-3">{heading} <span className="font-normal">({list.length})</span></h2>
+          <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{list.map((o) => <li key={o.id}><EventCard o={o} onOpen={() => onOpen(o.id)} /></li>)}</ul>
+        </section>
+      ))}
+    </div>
+  );
+}
+
+function EventCard({ o, onOpen }: { o: Opportunity; onOpen: () => void }) {
+  return (
+    <Card className="flex h-full flex-col p-4">
+      <div className="flex flex-wrap items-center gap-1.5">
+        <LocationBadges scopes={o.geo_scopes} inferred={o.geo_inferred} />
+        {o.event_format === "online" && <Badge tone="teal">Online</Badge>}
+        {o.match && <BandBadge band={o.match.relevance_band} score={o.match.relevance_score} />}
+      </div>
+      <h3 className="mt-2.5 text-[15px] font-semibold leading-snug text-ink"><button onClick={onOpen} className="text-left hover:text-brand">{o.title}</button></h3>
+      <dl className="mt-2.5 space-y-1.5 text-[12.5px]">
+        <div className="flex items-start gap-1.5">
+          <dt><CalendarDays className="mt-0.5 size-3.5 text-ink-3" aria-label="Date" /></dt>
+          <dd className="text-ink-2"><span className="font-medium text-ink">Event date not in collected data</span><br /><span className="text-ink-3">Listing published {formatDate(o.published_at)}</span></dd>
+        </div>
+        <div className="flex items-start gap-1.5">
+          <dt><Building2 className="mt-0.5 size-3.5 text-ink-3" aria-label="Organiser" /></dt>
+          <dd className="text-ink-2">Listed by {o.organisation} · organiser not in collected data</dd>
+        </div>
+        <div className="flex items-start gap-1.5">
+          <dt><Users className="mt-0.5 size-3.5 text-ink-3" aria-label="Sponsors and participants" /></dt>
+          <dd className="text-ink-3">Sponsor information not available in the collected event data.</dd>
+        </div>
+      </dl>
+      <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-3">
+        <ProvenanceBadge provenance={o.provenance} />
+        <SourceLink href={o.source_url}>Official event page</SourceLink>
+      </div>
+    </Card>
+  );
+}
+
 function FundingView({ companyId, onOpen }: { companyId: number; onOpen: (id: number) => void }) {
   const q = useFunding(companyId);
+  // Sorted copy; the cached API response is never mutated.
+  const sorted = useMemo(() => sortByDeadline(q.data?.items ?? []), [q.data]);
   if (q.isLoading) return <LoadingBlock rows={3} />;
   if (q.isError) return <ErrorState error={q.error} onRetry={() => q.refetch()} />;
   const f = q.data!;
+  const GROUP_HEADING: Record<DeadlineGroup, string> = { upcoming: "Open — nearest deadline first", closed: "Closed", undated: "No deadline stated in source" };
   return (
     <div className="space-y-5">
       <div className="grid gap-4 md:grid-cols-3">
@@ -228,21 +302,30 @@ function FundingView({ companyId, onOpen }: { companyId: number; onOpen: (id: nu
         ))}
       </div>
       <Card>
-        <CardHeader icon={<Landmark className="size-4" />} title="Funding ranked for you" subtitle={f.note} />
+        <CardHeader icon={<Landmark className="size-4" />} title="Funding by application deadline" subtitle={f.note} />
         <CardBody className="overflow-x-auto">
+          <p className="mb-3 flex items-start gap-1.5 text-[12.5px] text-ink-3"><CalendarRange className="mt-0.5 size-3.5 shrink-0" aria-hidden />
+            Sorted by application deadline (Europe/Stockholm time). Dates come from the collected snapshot; confirm on the source before applying.</p>
           <table className="w-full min-w-[720px] text-left text-[13px]">
-            <thead className="text-[12px] text-ink-3"><tr><th className="pb-2 font-medium">Opportunity</th><th className="pb-2 font-medium">Relevance</th><th className="pb-2 font-medium">Deadline</th><th className="pb-2 font-medium">Area</th><th className="pb-2 font-medium">Source</th></tr></thead>
+            <thead className="text-[12px] text-ink-3"><tr><th className="pb-2 font-medium">Opportunity</th><th className="pb-2 font-semibold text-ink">Application deadline</th><th className="pb-2 font-medium">Relevance</th><th className="pb-2 font-medium">Area</th><th className="pb-2 font-medium">Source</th></tr></thead>
             <tbody className="divide-y divide-line">
-              {f.items.map((i) => (
-                <tr key={i.id} className="align-top">
-                  <td className="py-2.5 pr-3"><button onClick={() => onOpen(i.id)} className="text-left font-medium text-ink hover:text-brand">{i.title}</button><div className="text-[12px] text-ink-3">{i.programme ?? i.organisation}</div></td>
-                  <td className="py-2.5 pr-3"><BandBadge band={i.band} score={i.score} /></td>
-                  <td className="py-2.5 pr-3"><DeadlineBadge deadline={i.deadline_at} days={i.timeliness.days_left} status={i.deadline_status} /></td>
-                  <td className="py-2.5 pr-3"><LocationBadges scopes={i.geography.scopes} inferred={i.geography.inferred} /></td>
-                  <td className="py-2.5"><div className="flex items-center gap-1.5"><ProvenanceBadge provenance={i.provenance} /><a href={i.url} target="_blank" rel="noopener noreferrer" aria-label="Open source record" className="text-brand"><ExternalLink className="size-3.5" /></a></div>
-                    {i.also_listed_by.length > 0 && <div className="text-[11.5px] text-ink-3">Also listed by {i.also_listed_by.map((a) => a.source).join(", ")}</div>}</td>
-                </tr>
-              ))}
+              {sorted.map((i, idx) => {
+                const group = deadlineGroup(i.deadline_at, i.timeliness.days_left);
+                const newGroup = idx === 0 || group !== deadlineGroup(sorted[idx - 1].deadline_at, sorted[idx - 1].timeliness.days_left);
+                return (
+                  <Fragment key={i.id}>
+                    {newGroup && <tr><th colSpan={5} scope="colgroup" className="bg-canvas px-2 py-1.5 text-[11.5px] font-semibold uppercase tracking-wide text-ink-3">{GROUP_HEADING[group]}</th></tr>}
+                    <tr className="align-top">
+                      <td className="py-2.5 pr-3"><button onClick={() => onOpen(i.id)} className="text-left font-medium text-ink hover:text-brand">{i.title}</button><div className="text-[12px] text-ink-3">{i.programme ?? i.organisation}</div></td>
+                      <td className="py-2.5 pr-3"><DeadlineBadge deadline={i.deadline_at} days={i.timeliness.days_left} status={i.deadline_status} /></td>
+                      <td className="py-2.5 pr-3"><BandBadge band={i.band} score={i.score} /></td>
+                      <td className="py-2.5 pr-3"><LocationBadges scopes={i.geography.scopes} inferred={i.geography.inferred} /></td>
+                      <td className="py-2.5"><div className="flex items-center gap-1.5"><ProvenanceBadge provenance={i.provenance} /><a href={i.url} target="_blank" rel="noopener noreferrer" aria-label={`Open source record: ${i.title} (opens in a new tab)`} className="text-brand"><ExternalLink className="size-3.5" aria-hidden /></a></div>
+                        {i.also_listed_by.length > 0 && <div className="text-[11.5px] text-ink-3">Also listed by {i.also_listed_by.map((a) => a.source).join(", ")}</div>}</td>
+                    </tr>
+                  </Fragment>
+                );
+              })}
             </tbody>
           </table>
         </CardBody>

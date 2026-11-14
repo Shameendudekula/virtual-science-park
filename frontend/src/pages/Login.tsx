@@ -7,7 +7,7 @@ import { demoLogin } from "@/app/workspace";
 import { Logo } from "@/components/layout/AppShell";
 import { Button, Card, Field, inputClass } from "@/components/ui/primitives";
 import { post } from "@/lib/api";
-import { setSession, type Session } from "@/lib/session";
+import { getSession, setSession, type Session } from "@/lib/session";
 import { useCompanies, useHealth } from "@/services/queries";
 
 const schema = z.object({ username: z.string().trim().min(2, "Enter your company username"), password: z.string().min(1, "Enter your password") });
@@ -31,6 +31,11 @@ export default function Login() {
     }
   };
   const openDemo = async (id: number) => {
+    // Never replace a signed-in (edit access) session here: the workspace asks the user first.
+    if (getSession()?.read_only === false) {
+      navigate(`/app/${id}/focus`);
+      return;
+    }
     try {
       await demoLogin(id);
       navigate(`/app/${id}/focus`);

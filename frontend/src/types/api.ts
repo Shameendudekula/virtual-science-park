@@ -193,6 +193,12 @@ export interface SearchResult { type: "opportunity" | "company" | "technology"; 
 export interface SearchResponse {
   query: { text: string; intent: string; company_id: number | null; company_name: string | null; concepts: { key: string; label: string; kind: string }[]; categories: string[]; notes: string[]; parser: string };
   results: SearchResult[]; count: number; note: string;
+  boundary?: SearchBoundary;
+}
+export interface SearchBoundary {
+  category: "in_scope" | "out_of_scope" | "override" | "private_data" | "eligibility" | "needs_human";
+  handling: "answered" | "answered_with_notice" | "declined" | "referred";
+  message: string | null; suggestions: string[]; referral: { label: string; url: string } | null; classifier: string;
 }
 
 export interface Health {

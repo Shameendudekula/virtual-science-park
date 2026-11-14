@@ -3,6 +3,7 @@ import { ArrowDown, ArrowUp, Minus, Plus, SlidersHorizontal, Trash2 } from "luci
 import { useEffect, useState } from "react";
 import { Button, Card, CardBody, CardHeader } from "@/components/ui/primitives";
 import { TierBadge } from "@/components/shared/badges";
+import { READ_ONLY_HINT, useReadOnly } from "@/app/workspace";
 import { useSetPriorities } from "@/services/queries";
 import type { Priority, RankingChange } from "@/types/api";
 import { cn } from "@/lib/utils";
@@ -20,6 +21,7 @@ export function PriorityEditor({ companyId, priorities, compact = false, onChang
   const [draft, setDraft] = useState<Record<string, number>>({});
   const [changes, setChanges] = useState<RankingChange[] | null>(null);
   const m = useSetPriorities(companyId);
+  const readOnly = useReadOnly();
   useEffect(() => setDraft(Object.fromEntries(priorities.map((p) => [p.key, p.weight]))), [priorities]);
   const dirty = priorities.some((p) => draft[p.key] !== undefined && draft[p.key] !== p.weight);
 
@@ -51,9 +53,10 @@ export function PriorityEditor({ companyId, priorities, compact = false, onChang
           ))}
         </ul>
         <div className="flex flex-wrap items-center gap-3">
-          <Button onClick={apply} disabled={!dirty} loading={m.isPending}>Update recommendations</Button>
+          <Button onClick={apply} disabled={!dirty || readOnly} loading={m.isPending} title={readOnly ? READ_ONLY_HINT : undefined}>Update recommendations</Button>
+          {readOnly && <span className="text-[12.5px] text-ink-3">{READ_ONLY_HINT}</span>}
           {m.isError && <span role="alert" className="text-[13px] text-critical">{(m.error as Error).message}</span>}
-          {!dirty && !changes && <span className="text-[12.5px] text-ink-3">Change a priority to see how the ranking responds.</span>}
+          {!readOnly && !dirty && !changes && <span className="text-[12.5px] text-ink-3">Change a priority to see how the ranking responds.</span>}
         </div>
         <AnimatePresence>{changes && <RankingDiff changes={changes} />}</AnimatePresence>
       </CardBody>

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from tests.conftest import company_id
+from tests.sessions import password_headers
 
 
 def _h(client, db, slug="ocean-harvesting"):
@@ -115,7 +116,7 @@ def test_recommendation_actions_are_company_scoped(client, db):
     rec = db.query(Recommendation).filter_by(company_id=oh, is_current=True).first()
     assert client.post(f"/api/recommendations/{rec.id}/save").status_code == 401
     assert client.post(f"/api/recommendations/{rec.id}/save", headers=_h(client, db, "cleura")).status_code == 403
-    h = _h(client, db)
+    h = password_headers(client, db)  # changing saved items needs a password session
     assert client.post(f"/api/recommendations/{rec.id}/save", headers=h).json()["status"] == "saved"
     assert client.post(f"/api/recommendations/{rec.id}/dismiss", headers=h).json()["status"] == "dismissed"
     assert client.post(f"/api/recommendations/{rec.id}/restore", headers=h).json()["status"] == "open"
@@ -127,15 +128,17 @@ def test_rate_limit_on_login(client):
 
 
 def test_demo_reset_restores_clean_state(client, db):
-    oh, h = company_id(db, "ocean-harvesting"), _h(client, db)
-    client.patch(f"/api/companies/{oh}/profile", headers=h, json={"add_claims": [{"field": "interest", "value": "Underwater robotics"}]})
-    assert client.post("/api/demo/reset").status_code == 200
+    oh, h = company_id(db, "ocean-harvesting"), password_headers(client, db)
+    r = client.patch(f"/api/companies/{oh}/profile", headers=h, json={"add_claims": [{"field": "research_interest", "value": "Underwater robotics"}]})
+    assert r.status_code == 200
+    assert client.post("/api/demo/reset").status_code == 401  # reset needs the admin token, also in demo mode
+    assert client.post("/api/demo/reset", headers={"X-Admin-Token": "test-admin-token"}).status_code == 200
     claims = client.get(f"/api/companies/{oh}/claims", headers=_h(client, db)).json()
     assert not [c for c in claims if c["claim_type"] == "user_provided"]
 
 
 def test_focus_top_three_respects_tiers(client, db, reset_after):
-    oh, h = company_id(db, "ocean-harvesting"), _h(client, db)
+    oh, h = company_id(db, "ocean-harvesting"), password_headers(client, db)
     client.put(f"/api/companies/{oh}/priorities", headers=h, json={"weights": {"testing_facilities": 3, "find_funding": 0}})
     tiers = [r["tier"] for r in client.get(f"/api/companies/{oh}/focus", headers=h).json()["top_three"]]
     order = {"high": 0, "medium": 1, "later": 2}

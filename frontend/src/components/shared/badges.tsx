@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import { AlertCircle, CheckCircle2, Clock, Database, ExternalLink, Globe2, Lightbulb, MapPin, Monitor, PenLine, Quote, ShieldCheck } from "lucide-react";
 import { Badge, type Tone } from "@/components/ui/primitives";
 import type { ClaimType, GeoScope, Geography, Ring, Tier } from "@/types/api";
-import { relativeDays } from "@/lib/utils";
+import { formatDate, parseDate, relativeDays } from "@/lib/utils";
 
 const CLAIM: Record<ClaimType, { label: string; tone: Tone; icon: ReactElement; title: string }> = {
   source_stated: { label: "Source-stated", tone: "green", icon: <Quote className="size-3" />, title: "Stated in a cited public source" },
@@ -51,12 +51,15 @@ export function BandBadge({ band, score }: { band: string; score?: number }) {
 
 export function DeadlineBadge({ deadline, days, status }: { deadline?: string | null; days?: number | null; status?: string }) {
   if (!deadline) return <Badge tone="neutral" icon={<Clock className="size-3" />}>{status === "placeholder_rejected" ? "Deadline not stated (placeholder rejected)" : "Deadline not stated in source"}</Badge>;
-  if (days !== null && days !== undefined && days < 0) return <Badge tone="neutral">Closed</Badge>;
-  const urgent = days !== null && days !== undefined && days <= 21;
+  if (!parseDate(deadline)) return <Badge tone="amber" icon={<AlertCircle className="size-3" />} title="The deadline in the source could not be read">Deadline unclear · check source</Badge>;
+  const date = formatDate(deadline); // Europe/Stockholm
+  const known = days !== null && days !== undefined;
+  if (known && days < 0) return <Badge tone="neutral" icon={<Clock className="size-3" />} title="Application deadline has passed">{date} · Closed</Badge>;
+  if (known && days === 0) return <Badge tone="red" className="font-semibold" icon={<AlertCircle className="size-3" />} title="Application deadline">{date} · Closes today</Badge>;
+  const urgent = known && days <= 21;
   return (
-    <Badge tone={urgent ? "red" : "neutral"} icon={urgent ? <AlertCircle className="size-3" /> : <Clock className="size-3" />}>
-      {new Date(deadline).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Stockholm" })}
-      {days !== null && days !== undefined ? ` · ${relativeDays(days)}` : ""}
+    <Badge tone={urgent ? "red" : "neutral"} className={urgent ? "font-semibold" : undefined} icon={urgent ? <AlertCircle className="size-3" /> : <Clock className="size-3" />} title="Application deadline">
+      {date}{known ? ` · ${relativeDays(days)}` : ""}
     </Badge>
   );
 }

@@ -2,7 +2,12 @@
 
 **Message:** Virtual Science Park saves small companies time and helps them find opportunities they would otherwise miss — with evidence for every claim.
 
-**Before you start:** the app is running (Docker → http://localhost:8080, or dev → http://localhost:5173) with `DEMO_MODE=true`. Optional: *Settings → Reset demo workspace*. If you present after the snapshot's deadlines have passed, run *Collect live* on Data Sources (admin token in Settings) or set `REFERENCE_DATE=2026-11-13`.
+**Before you start:** the app is running (Docker → http://localhost:8080, or dev → http://localhost:5173) with `DEMO_MODE=true`.
+
+- **Sign in as the company before presenting.** Password-free demo workspaces are read-only, so the priorities step below needs a password session: on the login page, sign in with username `ocean-harvesting` and the company password (`DEMO_COMPANY_PASSWORD`, kept by the team; never show it on screen). The read-only banner disappears once you are signed in.
+- Opening another company's workspace while signed in asks before leaving your session; choose **Stay** during the demo.
+- Optional clean start: *Settings → Reset demo workspace*. This needs the admin token entered in Settings; without it the reset is not offered.
+- If you present after the snapshot's deadlines have passed, run *Collect live* on Data Sources (admin token in Settings) or set `REFERENCE_DATE=2026-11-13`.
 
 ## 0:00–0:30 · The problem (landing page)
 
@@ -36,7 +41,7 @@ Explain using the criteria panel: a physical event in Karlskrona earns proximity
 
 **5 Recommendations.** Read the executive summary. Open **Why this?** on the top item: what, why, capability, value, evidence, uncertainty, next step.
 
-In *Your priorities*, set **Find testing facilities → Top** and **Find new funding → Off**, click **Update recommendations**. The ranking diff shows test environments and Kiwa moving up and funding items dropping. "Priorities change the ranking through transparent rules — no black box."
+In *Your priorities* (requires the password session from *Before you start*; in a read-only demo the button is disabled), set **Find testing facilities → Top** and **Find new funding → Off**, click **Update recommendations**. The ranking diff shows test environments and Kiwa moving up and funding items dropping. "Priorities change the ranking through transparent rules — no black box."
 
 ## 4:30–5:00 · Value
 
@@ -46,8 +51,10 @@ Close: **"Virtual Science Park transforms scattered innovation information into 
 
 ## Likely judge questions
 
-- *Is it live?* Data Sources shows each source's mode; **Collect live** on Vinnova refreshes it.
+- *Is it live?* Data Sources shows each source's mode; **Collect live** on Vinnova refreshes it (admin token required).
+- *Can a visitor change the demo?* No. Password-free demo sessions are read-only, enforced by the API; only the company's password session can edit its own data, and only the admin token can reset.
+- *What happens to my questions in Ask VSP?* A demo visitor's questions are not stored. A signed-in company sees its own question history.
 - *What if Vinnova is down?* The run is recorded as failed; existing data stays.
 - *Does Cleura see Ocean Harvesting's edits?* No — private edits never leave a workspace.
 - *Why not Ymner?* Its API requires authentication and no reuse terms were found, so it is linked, not scraped.
-- Afterwards: *Settings → Reset demo workspace*.
+- Afterwards: *Settings → Reset demo workspace* (admin token required), or undo your priority change by hand.
