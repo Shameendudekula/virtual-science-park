@@ -131,7 +131,9 @@ cd backend && VSP_TEST_NO_DB=1 pytest
 cd frontend && npm test && npm run build
 ```
 
-**Full database-backed tests** drop and recreate the `public` schema of the target database (then apply the Alembic migrations and seed it). Run them only against a dedicated, isolated test database, never against `vsp`, `vsp_test`, `vsp_park` or `vsp_park_test`. `vsp_park_test` is the suite's built-in default when `TEST_DATABASE_URL` is unset, so always set it explicitly. `backend/tests/conftest.py` checks these before anything connects and aborts with exit code 4 if one fails:
+**Full database-backed tests: do not run them yet.** They drop and recreate the `public` schema of the target database (then apply the Alembic migrations and seed it). `vsp_park_test` is a protected database and must never be used, but the current code still accepts it as a built-in test database name (it is even the suite's default when `TEST_DATABASE_URL` is unset). The database-safety refactor that removes this is pending. Until that refactor is complete **and** a dedicated, verified, isolated test database is explicitly configured, do not run the database-backed suite. Never point it at `vsp`, `vsp_test`, `vsp_park` or `vsp_park_test`.
+
+For reference, `backend/tests/conftest.py` already checks these settings before anything connects and aborts with exit code 4 if one fails:
 
 | Variable | Requirement |
 |---|---|
@@ -140,7 +142,7 @@ cd frontend && npm test && npm run build
 | `VSP_TEST_EXPECTED_PORT` | Must equal the port in `TEST_DATABASE_URL` |
 | `VSP_TEST_EXPECTED_SYSTEM_ID` | Optional: the server's system identifier; any connection to a different server is refused |
 
-With those set, run `cd backend && pytest`. Every connection, and the schema reset itself, re-checks the database name, port and (if given) system identifier; see [docs/vsp/security.md](docs/vsp/security.md#database-and-configuration-safety).
+Every connection, and the schema reset itself, re-checks the database name, port and (if given) system identifier; see [docs/vsp/security.md](docs/vsp/security.md#database-and-configuration-safety). These checks do not yet treat `vsp_park_test` as protected.
 
 ## Verification
 
@@ -183,10 +185,11 @@ All settings are in [.env.example](.env.example). The ones you are most likely t
 
 **Database and configuration safety** (see [docs/vsp/security.md](docs/vsp/security.md#database-and-configuration-safety)):
 - The app, Alembic, the Docker entrypoint and the tests refuse the earlier prototype's `vsp` and `vsp_test` databases and the system databases, refuse URLs without a database name, and check the actual connected database name on every new connection.
-- The test suite runs only against `vsp_park_test` (or an explicit `VSP_ALLOW_TEST_DATABASE` ending in `_test`) and re-checks the connected database immediately before it drops the schema.
+- Before it drops the schema, the test suite re-checks the connected database. It refuses `vsp`, `vsp_test` and any name that is neither its built-in test name nor an explicit `VSP_ALLOW_TEST_DATABASE` ending in `_test`. That built-in name is `vsp_park_test`, which project policy treats as protected (see *Known risks*).
 - `.env` is read only from this repository. Demo mode is off unless `.env` turns it on. Docker Compose publishes its ports on 127.0.0.1 only.
 
 **Known risks, not yet fixed:**
+- **Protected databases still accepted by the code (refactor pending).** Project policy protects `vsp`, `vsp_test`, `vsp_park` and `vsp_park_test`. The code refuses only `vsp` and `vsp_test`: it still accepts `vsp_park` as an application database and `vsp_park_test` as the built-in test database, and `.env.example` and Docker Compose still default to `vsp_park`. Until the database-safety refactor is complete, do not run the database-backed tests and always configure a dedicated, non-protected database explicitly.
 - **Migration IDs.** The migrations use the revision IDs `0001` and `0002`, the same IDs an earlier prototype used for a different schema. The guards above stop them reaching `vsp`/`vsp_test`, but a copy of that schema under another name would still be mis-detected.
 - **No deployment verified.** The test results in [Verification](#verification) are local; no deployed environment has been checked by them.
 
