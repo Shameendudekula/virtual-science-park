@@ -1,0 +1,173 @@
+{
+  "slug": "ocean-harvesting",
+  "name": "Ocean Harvesting",
+  "legal_name": "Ocean Harvesting Technologies AB",
+  "website": "https://oceanharvesting.com/",
+  "tagline": "Harvesting Wave Energy",
+  "profile_level": "full",
+  "organisation_type": "company",
+  "is_demo_company": true,
+  "membership": {
+    "bsp_member_id": 20811,
+    "url": "https://www.bluesciencepark.se/medlem/ocean-harvesting/"
+  },
+  "pages": {
+    "home": {
+      "url": "https://oceanharvesting.com/",
+      "title": "Home - Ocean Harvesting",
+      "publisher": "Ocean Harvesting Technologies AB"
+    },
+    "tech": {
+      "url": "https://oceanharvesting.com/our-technology/",
+      "title": "Our Technology - Ocean Harvesting",
+      "publisher": "Ocean Harvesting Technologies AB"
+    },
+    "about": {
+      "url": "https://oceanharvesting.com/about-us/",
+      "title": "About us - Ocean Harvesting",
+      "publisher": "Ocean Harvesting Technologies AB"
+    }
+  },
+  "claims": [
+    {
+      "field": "overview",
+      "label": "Company overview",
+      "page": "about",
+      "value": "Privately held Swedish company developing InfinityWEC, a patented wave energy converter that combines high energy output, high material efficiency and low-cost materials.",
+      "excerpt": "Ocean Harvesting Technologies AB is a privately held company based in Gothenburg and Karlskrona, Sweden, aiming to become an important part of the future renewable energy mix by developing InfinityWEC, a patented wave energy converter (WEC) combining high energy output, high material efficiency and low-cost materials."
+    },
+    {
+      "field": "location",
+      "label": "Gothenburg and Karlskrona, Sweden",
+      "page": "about",
+      "value": "Based in Gothenburg and Karlskrona, Sweden.",
+      "excerpt": "Ocean Harvesting Technologies AB is a privately held company based in Gothenburg and Karlskrona, Sweden"
+    },
+    {
+      "field": "product",
+      "label": "InfinityWEC wave energy converter",
+      "page": "home",
+      "value": "InfinityWEC: a 500 kW point-absorbing wave energy converter with a compact power take-off and a low-cost buoy made of high performance concrete and EPS in a honeycomb structure.",
+      "excerpt": "InfinityWEC is a 500 kW point absorbing wave energy converter with a highly efficient, compact and light-weight power take-off, and a low-cost buoy made of high performance concrete and EPS in a honeycomb structure."
+    },
+    {
+      "field": "technology",
+      "label": "Model Predictive Control (MPC)",
+      "page": "tech",
+      "value": "Model Predictive Control (MPC) optimises power output by controlling the phase of the buoy motion to match each wave.",
+      "excerpt": "Model Predictive Control (MPC) is used to optimize power output by controlling the phase of the buoy motion to match with each wave."
+    },
+    {
+      "field": "technology",
+      "label": "Ball-screw power take-off with hydrostatic pre-tension",
+      "page": "about",
+      "value": "Novel power take-off (PTO) combining ball screw actuators with hydrostatic pre-tension to deliver instantly controllable force.",
+      "excerpt": "Instantly controllable force is delivered through a novel power take-off that combines ball screw actuators with hydrostatic pre-tension."
+    },
+    {
+      "field": "technology",
+      "label": "EV-derived power electronics (SiC inverters)",
+      "page": "tech",
+      "value": "The PTO uses power electronics from the EV sector: geared axial-flux motors, SiC inverters and a solid state transformer.",
+      "excerpt": "The PTO uses compact and efficient power electronics from EV."
+    },
+    {
+      "field": "technology",
+      "label": "Flywheel energy storage for phase control",
+      "page": "tech",
+      "value": "High-speed flywheel batteries provide reactive power for phase control and smooth the captured power to a constant output.",
+      "excerpt": "High-speed flywheel batteries are used to provide reactive power necessary for phase control, and to smoothen the captured power to a constant output depending on the sea state."
+    },
+    {
+      "field": "capability",
+      "label": "Simulation-driven development",
+      "page": "tech",
+      "value": "Eight years of simulation driven development and optimisation of the wave energy converter.",
+      "excerpt": "Eight years of simulation driven development and optimization has resulted in InfinityWEC generation 7."
+    },
+    {
+      "field": "capability",
+      "label": "High-performance concrete buoy manufacturing",
+      "page": "tech",
+      "value": "Honeycomb buoy in high performance concrete and EPS, enabling rapid local manufacturing with locally sourced raw materials.",
+      "excerpt": "The InfinityWEC buoy is a unique design with a honeycomb structure in high performance concrete and EPS, enabling rapid local manufacturing with locally sourced raw materials."
+    },
+    {
+      "field": "capability",
+      "label": "Survivability engineering for extreme waves",
+      "page": "tech",
+      "value": "Survival in extreme wave conditions secured with a slack-catch feature in a hydraulic level cylinder below the PTO.",
+      "excerpt": "Survival in extreme wave conditions is secured with a slack-catch feature in a hydraulic level cylinder below the PTO"
+    },
+    {
+      "field": "capability",
+      "label": "Subsea power take-off near the anchor",
+      "page": "tech",
+      "value": "The PTO is situated close to the anchor at approximately 80 metre depth, connected to the buoy by a mooring line.",
+      "excerpt": "The PTO is situated close to the anchor at approx. 80 meter depth."
+    },
+    {
+      "field": "industry",
+      "label": "Renewable energy (wave power)",
+      "page": "about",
+      "value": "Renewable energy: aims to become part of the future renewable energy mix through wave power.",
+      "excerpt": "aiming to become an important part of the future renewable energy mix"
+    },
+    {
+      "field": "industry",
+      "label": "Ocean / offshore energy",
+      "page": "home",
+      "value": "Offshore ocean energy: planned sea trials at increasing scale and first array installations (wave farms).",
+      "excerpt": "These projects will be followed by sea trials of InfinityWEC at scale 1:3, and thereafter sea trials at full scale and first array installations."
+    },
+    {
+      "field": "business_focus",
+      "label": "Grid value of wave power",
+      "page": "home",
+      "value": "Positions wave energy as producing electricity more consistently than wind and solar, improving grid balance and reducing the need for energy storage.",
+      "excerpt": "Wave energy produces electricity more consistently and at different times than wind and solar, increasing the value of produced electricity by improving grid balance and reducing the need for energy storage."
+    },
+    {
+      "field": "business_focus",
+      "label": "Roadmap to sea trials and first arrays",
+      "page": "home",
+      "value": "Next steps: sea trials at scale 1:3, then full-scale sea trials and first array installations.",
+      "excerpt": "These projects will be followed by sea trials of InfinityWEC at scale 1:3"
+    },
+    {
+      "field": "project",
+      "label": "INFINITY (2025–2027)",
+      "page": "home",
+      "value": "Project INFINITY (2025–2027): development of a control system with MPC algorithm; build and test of the InfinityWEC power take-off at scale 1:4.",
+      "excerpt": "Project INFINITY (2025 – 2027): Development of control system with MPC algorithm, build and test of InfinityWEC power take-off at scale 1:4."
+    },
+    {
+      "field": "project",
+      "label": "WECHULL+ (2024–2027)",
+      "page": "home",
+      "value": "Project WECHULL+ (2024–2027): development of low-cost floating structures based on high performance concrete and a patented honeycomb structure.",
+      "excerpt": "Project WECHULL+ (2024 – 2027): Development of low-cost floating structures based on high performance concrete and Ocean Harvestings patented honeycomb structure."
+    },
+    {
+      "field": "documented_collaboration",
+      "label": "EU CETP collaboration projects",
+      "page": "about",
+      "value": "Technology validated through two EU collaboration projects (INFINITY and WECHULL+) financed by the Swedish Energy Agency under the Clean Energy Transition Partnership (CETP). Individual consortium partners are not named in the collected source.",
+      "excerpt": "The technology has been developed since 2017 and is now being validated through two EU collaboration projects; INFINITY (power take-off and control system) and WECHULL+ (buoy), financed by the Swedish Energy Agency under in the Clean Energy Transition Partnership Program (CETP)."
+    },
+    {
+      "field": "project",
+      "label": "1:4 scale PTO prototype in test rig",
+      "page": "tech",
+      "value": "The PTO technology is being validated with a 1:4 scale prototype in a test rig in the EU-funded INFINITY project.",
+      "excerpt": "The PTO technology is now being validated with a 1:4 scale prototype in a test-rig in the EUR 2.7 million EU-funded project INFINITY."
+    },
+    {
+      "field": "location",
+      "label": "Office at Campus Gräsvik, Karlskrona",
+      "page": "home",
+      "value": "Office address at Campus Gräsvik, 371 75 Karlskrona, Sweden.",
+      "excerpt": "Campus Gräsvik 28 371 75 Karlskrona Sweden"
+    }
+  ]
+}

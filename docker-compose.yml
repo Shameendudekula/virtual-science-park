@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-vsp}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-vsp}
+      POSTGRES_DB: ${POSTGRES_DB:-vsp_park}
+    volumes:
+      - vsp_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-vsp} -d ${POSTGRES_DB:-vsp_park}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-vsp}:${POSTGRES_PASSWORD:-vsp}@db:5432/${POSTGRES_DB:-vsp_park}
+      CORS_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      # Bound to localhost only; put a TLS reverse proxy in front for any shared deployment.
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+
+volumes:
+  vsp_pgdata:

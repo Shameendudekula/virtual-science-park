@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# Environment variables
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# Frontend tooling
+.vite/
+coverage/
+
+# Local databases (rebuilt by the demo build script from data/config/ and data/snapshots/)
+*.db
+*.sqlite
+*.sqlite3
+
+# Fetched web content and LLM response cache (may contain third-party text)
+/data/cache/
+
+# Challenge briefs: kept locally, not committed
+/research/*.pdf
+
+# Local AI assistant settings
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# AI development notes
+docs/AI_CONTEXT.md
+docs/AI_WORKFLOW.md
+docs/internal/
+
+# Local private data
+data/private/
+
+# Integrated VSP application: TypeScript incremental build info and database dumps
+*.tsbuildinfo
+*.dump

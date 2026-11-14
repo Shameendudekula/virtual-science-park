@@ -1,0 +1,79 @@
+{
+  "slug": "blekinge-institute-of-technology",
+  "name": "Blekinge Institute of Technology (BTH)",
+  "legal_name": "Blekinge Tekniska Högskola",
+  "website": "https://www.bth.se/english",
+  "tagline": "A hub for curiosity, innovation and change",
+  "profile_level": "partial",
+  "organisation_type": "university",
+  "is_demo_company": false,
+  "membership": {
+    "bsp_member_id": 20730,
+    "url": "https://www.bluesciencepark.se/medlem/blekinge-tekniska-hogskola/"
+  },
+  "pages": {
+    "areas": {
+      "url": "https://www.bth.se/english/research/research-areas",
+      "title": "Research areas | Blekinge Tekniska Högskola",
+      "publisher": "Blekinge Institute of Technology"
+    }
+  },
+  "claims": [
+    {
+      "field": "overview",
+      "label": "University research overview",
+      "page": "areas",
+      "value": "University (institute of technology) whose research areas range from technology and digitalisation to sustainable development and health sciences.",
+      "excerpt": "Our research areas range from technology and digitalisation to sustainable development and health sciences"
+    },
+    {
+      "field": "research_interest",
+      "label": "Computer science & intelligent systems",
+      "page": "areas",
+      "value": "Research in computer science, developing intelligent systems.",
+      "excerpt": "At BTH, we conduct cutting-edge research in computer science. We develop intelligent systems"
+    },
+    {
+      "field": "research_interest",
+      "label": "Mechanical engineering & digital product development",
+      "page": "areas",
+      "value": "Research in mechanical engineering focused on digital product development.",
+      "excerpt": "Research in Mechanical Engineering at BTH focuses on digital product development"
+    },
+    {
+      "field": "research_interest",
+      "label": "Software engineering",
+      "page": "areas",
+      "value": "Research in software engineering covering techniques, methods and processes for developing software.",
+      "excerpt": "Research in software engineering at BTH covers techniques, methods and processes for developing"
+    },
+    {
+      "field": "research_interest",
+      "label": "Systems engineering: sensors, signals and systems",
+      "page": "areas",
+      "value": "Research in systems engineering covering sensors, signals and systems.",
+      "excerpt": "Research in systems engineering at BTH covers sensors, signals and systems"
+    },
+    {
+      "field": "research_interest",
+      "label": "Strategic sustainable development",
+      "page": "areas",
+      "value": "Research in strategic sustainable development, including support for companies and municipalities.",
+      "excerpt": "Strategic sustainable development"
+    },
+    {
+      "field": "capability",
+      "label": "Academic research partner",
+      "page": "areas",
+      "value": "University research areas and researchers available for collaboration (institute of technology).",
+      "excerpt": "At BTH we conduct research that makes a difference."
+    },
+    {
+      "field": "location",
+      "label": "Karlskrona campus",
+      "page": "areas",
+      "value": "Located in Karlskrona, Blekinge, Sweden.",
+      "excerpt": "Address: Blekinge Tekniska Högskola, 371 79 Karlskrona"
+    }
+  ]
+}

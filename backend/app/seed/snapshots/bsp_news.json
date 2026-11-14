@@ -1,0 +1,1006 @@
+{
+ "source": "bsp_news",
+ "retrieved_at": "2026-11-13T12:48:50.670684+00:00",
+ "payload": [
+  {
+   "id": 23455,
+   "date": "2026-11-13T09:51:46",
+   "modified": "2026-11-13T09:51:48",
+   "slug": "blue-science-park-och-blekinge-business-incubator-bildar-gemensam-science-park-par-johansson-blir-vd",
+   "link": "https://www.bluesciencepark.se/aktuellt/blue-science-park-och-blekinge-business-incubator-bildar-gemensam-science-park-par-johansson-blir-vd/",
+   "title": {
+    "rendered": "Blue Science Park och Blekinge Business Incubator bildar gemensam science park – Pär Johansson blir VD"
+   }
+  },
+  {
+   "id": 23438,
+   "date": "2026-11-11T09:43:32",
+   "modified": "2026-11-11T09:43:40",
+   "slug": "projektet-sweden-secure-tech-hub-overtraffade-malen",
+   "link": "https://www.bluesciencepark.se/aktuellt/projektet-sweden-secure-tech-hub-overtraffade-malen/",
+   "title": {
+    "rendered": "Projektet Sweden Secure Tech Hub överträffade målen"
+   }
+  },
+  {
+   "id": 23424,
+   "date": "2026-11-02T14:45:40",
+   "modified": "2026-11-02T14:45:43",
+   "slug": "fran-projekt-till-produkt-techinova-tar-nasta-steg-inom-sakrare-elnat",
+   "link": "https://www.bluesciencepark.se/aktuellt/fran-projekt-till-produkt-techinova-tar-nasta-steg-inom-sakrare-elnat/",
+   "title": {
+    "rendered": "Från projekt till produkt – Techinova tar nästa steg inom säkrare elnät"
+   }
+  },
+  {
+   "id": 23325,
+   "date": "2026-10-13T10:21:42",
+   "modified": "2026-10-13T10:21:44",
+   "slug": "fran-smart-refillosning-till-digital-affar-sa-tog-dosify-nasta-steg",
+   "link": "https://www.bluesciencepark.se/aktuellt/fran-smart-refillosning-till-digital-affar-sa-tog-dosify-nasta-steg/",
+   "title": {
+    "rendered": "Från smart refillösning till digital affär – så tog Dosify nästa steg"
+   }
+  },
+  {
+   "id": 23152,
+   "date": "2026-09-14T14:13:06",
+   "modified": "2026-09-14T14:13:08",
+   "slug": "digit-hub-sweden-2-0-ar-igang-starker-stodet-for-digital-utveckling-i-blekinge",
+   "link": "https://www.bluesciencepark.se/aktuellt/digit-hub-sweden-2-0-ar-igang-starker-stodet-for-digital-utveckling-i-blekinge/",
+   "title": {
+    "rendered": "DigIT Hub Sweden 2.0 är igång – stärker stödet för digital utveckling i Blekinge"
+   }
+  },
+  {
+   "id": 23121,
+   "date": "2026-08-26T08:49:42",
+   "modified": "2026-08-26T08:52:33",
+   "slug": "lassen-construction-ab-blir-ny-medlem-i-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/lassen-construction-ab-blir-ny-medlem-i-blue-science-park/",
+   "title": {
+    "rendered": "Lassen Construction AB blir ny medlem i Blue Science Park"
+   }
+  },
+  {
+   "id": 23031,
+   "date": "2026-06-10T14:01:46",
+   "modified": "2026-06-10T14:01:49",
+   "slug": "nytt-projekt-ska-starka-kreativa-branscher-i-ostersjoregionen",
+   "link": "https://www.bluesciencepark.se/aktuellt/featured-2-aktuellt/nytt-projekt-ska-starka-kreativa-branscher-i-ostersjoregionen/",
+   "title": {
+    "rendered": "Nytt projekt ska stärka kreativa branscher i Östersjöregionen"
+   }
+  },
+  {
+   "id": 22996,
+   "date": "2026-06-09T14:41:08",
+   "modified": "2026-06-09T14:53:51",
+   "slug": "cybersakerhet-ar-inget-tillval-det-ar-grunden",
+   "link": "https://www.bluesciencepark.se/aktuellt/cybersakerhet-ar-inget-tillval-det-ar-grunden/",
+   "title": {
+    "rendered": "Cybersäkerhet är inget tillval – det är grunden"
+   }
+  },
+  {
+   "id": 22917,
+   "date": "2026-05-29T09:48:09",
+   "modified": "2026-05-29T09:51:55",
+   "slug": "valkommen-peter-lilja-ny-vd-for-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/valkommen-peter-lilja-ny-vd-for-blue-science-park/",
+   "title": {
+    "rendered": "Välkommen Peter Lilja – ny vd för Blue Science Park"
+   }
+  },
+  {
+   "id": 22898,
+   "date": "2026-05-27T16:07:45",
+   "modified": "2026-06-03T08:33:39",
+   "slug": "internationella-cybersakerhetsprojektet-cissan-gar-i-mal-med-hogsta-betyg",
+   "link": "https://www.bluesciencepark.se/aktuellt/internationella-cybersakerhetsprojektet-cissan-gar-i-mal-med-hogsta-betyg/",
+   "title": {
+    "rendered": "Internationella cybersäkerhetsprojektet CISSAN går i mål med högsta betyg"
+   }
+  },
+  {
+   "id": 22829,
+   "date": "2026-04-13T14:06:59",
+   "modified": "2026-06-03T08:34:15",
+   "slug": "ny-miljo-for-att-testa-marinteknik-i-verkligheten",
+   "link": "https://www.bluesciencepark.se/aktuellt/ny-miljo-for-att-testa-marinteknik-i-verkligheten/",
+   "title": {
+    "rendered": "Ny miljö för att testa marinteknik i verkligheten"
+   }
+  },
+  {
+   "id": 22730,
+   "date": "2026-03-17T15:26:28",
+   "modified": "2026-03-18T08:33:14",
+   "slug": "digit-hub-sweden-far-trearig-forlangning-vi-vaxlar-upp-det-digitala-stodet-i-blekinge",
+   "link": "https://www.bluesciencepark.se/aktuellt/digit-hub-sweden-far-trearig-forlangning-vi-vaxlar-upp-det-digitala-stodet-i-blekinge/",
+   "title": {
+    "rendered": "DigIT Hub Sweden får treårig förlängning – vi växlar upp det digitala stödet i Blekinge"
+   }
+  },
+  {
+   "id": 22597,
+   "date": "2026-03-01T11:37:22",
+   "modified": "2026-03-03T12:03:15",
+   "slug": "utveckling-av-agentbaserade-arbetsfloden-vi-stodjer-framtidens-kunskapsarbete",
+   "link": "https://www.bluesciencepark.se/aktuellt/utveckling-av-agentbaserade-arbetsfloden-vi-stodjer-framtidens-kunskapsarbete/",
+   "title": {
+    "rendered": "Utveckling av agentbaserade arbetsflöden – vi stödjer framtidens kunskapsarbete"
+   }
+  },
+  {
+   "id": 22578,
+   "date": "2026-02-26T13:34:25",
+   "modified": "2026-02-26T14:21:37",
+   "slug": "lysa-blir-ny-medlem-i-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/lysa-blir-ny-medlem-i-blue-science-park/",
+   "title": {
+    "rendered": "Lysa blir ny medlem i Blue Science Park"
+   }
+  },
+  {
+   "id": 22075,
+   "date": "2026-01-15T11:26:23",
+   "modified": "2026-01-15T15:52:29",
+   "slug": "njordx-blir-ny-medlem-i-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/njordx-blir-ny-medlem-i-blue-science-park/",
+   "title": {
+    "rendered": "NjordX blir ny medlem i Blue Science Park"
+   }
+  },
+  {
+   "id": 21938,
+   "date": "2025-11-11T15:12:15",
+   "modified": "2025-12-03T14:03:40",
+   "slug": "sakerheten-forst-veridens-vassade-ny-produkt-med-expertstod-fran-knowit",
+   "link": "https://www.bluesciencepark.se/aktuellt/sakerheten-forst-veridens-vassade-ny-produkt-med-expertstod-fran-knowit/",
+   "title": {
+    "rendered": "Säkerheten först: Veridens vässade ny produkt med expertstöd från Knowit "
+   }
+  },
+  {
+   "id": 21857,
+   "date": "2025-10-05T19:07:07",
+   "modified": "2025-11-11T15:21:12",
+   "slug": "succestart-for-framtidsradet",
+   "link": "https://www.bluesciencepark.se/aktuellt/succestart-for-framtidsradet/",
+   "title": {
+    "rendered": "Succéstart för Framtidsrådet"
+   }
+  },
+  {
+   "id": 21752,
+   "date": "2025-09-04T12:10:00",
+   "modified": "2025-09-04T12:13:01",
+   "slug": "parkerra-vinner-arets-skapa-pris-i-blekinge",
+   "link": "https://www.bluesciencepark.se/aktuellt/parkerra-vinner-arets-skapa-pris-i-blekinge/",
+   "title": {
+    "rendered": "Parkerra vinner årets SKAPA-pris i Blekinge"
+   }
+  },
+  {
+   "id": 21744,
+   "date": "2025-09-01T09:52:54",
+   "modified": "2025-09-01T10:05:08",
+   "slug": "digit-hub-sweden-day",
+   "link": "https://www.bluesciencepark.se/aktuellt/digit-hub-sweden-day/",
+   "title": {
+    "rendered": "DigIT Hub Sweden Day"
+   }
+  },
+  {
+   "id": 21509,
+   "date": "2025-03-27T17:28:37",
+   "modified": "2025-03-27T17:44:02",
+   "slug": "hackathon-med-fokus-pa-ai-och-framtidens-klassrum-samlade-gymnasieelever-i-karlskrona",
+   "link": "https://www.bluesciencepark.se/aktuellt/hackathon-med-fokus-pa-ai-och-framtidens-klassrum-samlade-gymnasieelever-i-karlskrona/",
+   "title": {
+    "rendered": "Hackathon med fokus på AI och framtidens klassrum samlade gymnasieelever i Karlskrona"
+   }
+  },
+  {
+   "id": 21339,
+   "date": "2025-02-12T08:42:00",
+   "modified": "2025-02-12T09:44:33",
+   "slug": "ny-satsning-for-att-starka-blekinges-foretag-genom-ai-teknologi",
+   "link": "https://www.bluesciencepark.se/aktuellt/ny-satsning-for-att-starka-blekinges-foretag-genom-ai-teknologi/",
+   "title": {
+    "rendered": "Ny satsning för att stärka Blekinges företag genom AI-teknologi"
+   }
+  },
+  {
+   "id": 20500,
+   "date": "2025-01-17T10:44:14",
+   "modified": "2025-01-20T15:11:38",
+   "slug": "konferens-pa-bth-i-nato-sponsrat-projekt-for-att-sakra-den-kritiska-internetinfrastrukturen",
+   "link": "https://www.bluesciencepark.se/aktuellt/konferens-pa-bth-i-nato-sponsrat-projekt-for-att-sakra-den-kritiska-internetinfrastrukturen/",
+   "title": {
+    "rendered": "Konferens på BTH i Nato-sponsrat projekt för att säkra den kritiska internetinfrastrukturen"
+   }
+  },
+  {
+   "id": 20495,
+   "date": "2025-01-17T10:29:46",
+   "modified": "2025-01-20T15:12:06",
+   "slug": "samtal-om-generativ-ai-for-regional-tillvaxt",
+   "link": "https://www.bluesciencepark.se/aktuellt/samtal-om-generativ-ai-for-regional-tillvaxt/",
+   "title": {
+    "rendered": "Samtal om generativ AI för regional tillväxt"
+   }
+  },
+  {
+   "id": 20312,
+   "date": "2024-11-08T07:53:46",
+   "modified": "2024-11-08T09:06:02",
+   "slug": "stor-framgang-for-ai-lab-blekinges-forsta-workshops",
+   "link": "https://www.bluesciencepark.se/aktuellt/stor-framgang-for-ai-lab-blekinges-forsta-workshops/",
+   "title": {
+    "rendered": "Stor framgång för AI Lab Blekinges första workshops"
+   }
+  },
+  {
+   "id": 20277,
+   "date": "2024-10-17T15:30:20",
+   "modified": "2024-10-17T15:30:22",
+   "slug": "bli-del-av-banbrytande-satsning-inom-marin-teknik",
+   "link": "https://www.bluesciencepark.se/aktuellt/bli-del-av-banbrytande-satsning-inom-marin-teknik/",
+   "title": {
+    "rendered": "Bli del av banbrytande satsning inom marin teknik"
+   }
+  },
+  {
+   "id": 20256,
+   "date": "2024-10-14T11:30:17",
+   "modified": "2024-10-14T11:30:19",
+   "slug": "framtidens-innovationer-inom-konst-och-teknologi-skapas-i-karlskrona",
+   "link": "https://www.bluesciencepark.se/aktuellt/framtidens-innovationer-inom-konst-och-teknologi-skapas-i-karlskrona/",
+   "title": {
+    "rendered": "Framtidens innovationer inom konst och teknologi skapas i Karlskrona"
+   }
+  },
+  {
+   "id": 20236,
+   "date": "2024-10-04T11:31:43",
+   "modified": "2024-10-04T11:31:45",
+   "slug": "ai-och-dronare-i-centrum-nar-innovatorer-prisades",
+   "link": "https://www.bluesciencepark.se/aktuellt/ai-och-dronare-i-centrum-nar-innovatorer-prisades/",
+   "title": {
+    "rendered": "AI och drönare i centrum när innovatörer prisades"
+   }
+  },
+  {
+   "id": 20183,
+   "date": "2024-09-23T20:16:18",
+   "modified": "2024-09-23T20:20:24",
+   "slug": "strategier-for-regionens-framtid-skapades-under-ai-summit",
+   "link": "https://www.bluesciencepark.se/aktuellt/strategier-for-regionens-framtid-skapades-under-ai-summit/",
+   "title": {
+    "rendered": "Strategier för regionens framtid skapades under AI Summit"
+   }
+  },
+  {
+   "id": 20129,
+   "date": "2024-09-03T15:08:02",
+   "modified": "2024-09-03T15:11:49",
+   "slug": "lennart-johansson-tar-over-som-tf-vd-pa-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/lennart-johansson-tar-over-som-tf-vd-pa-blue-science-park/",
+   "title": {
+    "rendered": "Lennart Johansson tar över som Tf VD på Blue Science Park"
+   }
+  },
+  {
+   "id": 20125,
+   "date": "2024-08-28T09:05:34",
+   "modified": "2024-08-28T13:14:26",
+   "slug": "blekinge-star-infor-flera-kompetensutmaningar-ai-summit-ska-hjalpa-till-att-vanda-trenden",
+   "link": "https://www.bluesciencepark.se/aktuellt/blekinge-star-infor-flera-kompetensutmaningar-ai-summit-ska-hjalpa-till-att-vanda-trenden/",
+   "title": {
+    "rendered": "Blekinge står inför kompetensutmaningar: AI-summit ska hjälpa till att vända trenden."
+   }
+  },
+  {
+   "id": 20103,
+   "date": "2024-08-20T08:53:43",
+   "modified": "2024-08-20T08:53:45",
+   "slug": "ais-paverkan-pa-karlskrona-och-blekinges-foretag-och-arbetsmarknad",
+   "link": "https://www.bluesciencepark.se/aktuellt/ais-paverkan-pa-karlskrona-och-blekinges-foretag-och-arbetsmarknad/",
+   "title": {
+    "rendered": "AI:s påverkan på Karlskrona och Blekinges företag och arbetsmarknad"
+   }
+  },
+  {
+   "id": 20079,
+   "date": "2024-08-08T14:58:59",
+   "modified": "2024-08-08T15:14:27",
+   "slug": "marine-technology-center-of-sweden-banar-vag-for-karlskronas-framtid",
+   "link": "https://www.bluesciencepark.se/aktuellt/marine-technology-center-of-sweden-banar-vag-for-karlskronas-framtid/",
+   "title": {
+    "rendered": "Marine Technology Center of Sweden banar väg för Karlskronas framtid"
+   }
+  },
+  {
+   "id": 19981,
+   "date": "2024-05-29T15:12:28",
+   "modified": "2024-05-31T08:30:10",
+   "slug": "darfor-ar-cybersakerhet-viktigt-sahar-kommer-du-igang",
+   "link": "https://www.bluesciencepark.se/aktuellt/darfor-ar-cybersakerhet-viktigt-sahar-kommer-du-igang/",
+   "title": {
+    "rendered": "Därför är cybersäkerhet viktigt &#8211; såhär kommer du igång "
+   }
+  },
+  {
+   "id": 19950,
+   "date": "2024-05-21T15:59:56",
+   "modified": "2024-05-21T15:59:57",
+   "slug": "tech-concept-lab-i-samarbete-med-varldsledande-foretag-i-kalifornien",
+   "link": "https://www.bluesciencepark.se/aktuellt/tech-concept-lab-i-samarbete-med-varldsledande-foretag-i-kalifornien/",
+   "title": {
+    "rendered": "Tech Concept Lab i samarbete med världsledande företag i Kalifornien"
+   }
+  },
+  {
+   "id": 19883,
+   "date": "2024-05-13T09:49:11",
+   "modified": "2024-05-13T09:49:12",
+   "slug": "framtidens-marina-innovation-diskuteras-under-marine-innovation-day-2024",
+   "link": "https://www.bluesciencepark.se/aktuellt/framtidens-marina-innovation-diskuteras-under-marine-innovation-day-2024/",
+   "title": {
+    "rendered": "Framtidens marina innovation diskuteras under Marine Innovation Day 2024"
+   }
+  },
+  {
+   "id": 19810,
+   "date": "2024-04-19T11:08:02",
+   "modified": "2024-05-22T09:49:08",
+   "slug": "studenter-fran-sverige-och-polen-samlas-i-karlskrona-for-att-tavla-i-stena-line-propeller-prize-hackathon",
+   "link": "https://www.bluesciencepark.se/aktuellt/studenter-fran-sverige-och-polen-samlas-i-karlskrona-for-att-tavla-i-stena-line-propeller-prize-hackathon/",
+   "title": {
+    "rendered": "Studenter från Sverige och Polen samlas i Karlskrona för att tävla i Stena Line Propeller Prize Hackathon"
+   }
+  },
+  {
+   "id": 19665,
+   "date": "2024-04-10T21:09:08",
+   "modified": "2024-04-10T21:09:10",
+   "slug": "fokus-pa-passionsdriven-ekonomi-och-tillvaxt-inom-blekinges-kreativa-och-kulturella-naringar",
+   "link": "https://www.bluesciencepark.se/aktuellt/fokus-pa-passionsdriven-ekonomi-och-tillvaxt-inom-blekinges-kreativa-och-kulturella-naringar/",
+   "title": {
+    "rendered": "Fokus på passionsdriven ekonomi och tillväxt inom Blekinges kreativa och kulturella näringar"
+   }
+  },
+  {
+   "id": 19674,
+   "date": "2024-04-10T21:00:30",
+   "modified": "2024-04-10T21:01:16",
+   "slug": "tcl-arrangerade-hackathon-for-gymnasieskolor-i-karlskrona",
+   "link": "https://www.bluesciencepark.se/aktuellt/tcl-arrangerade-hackathon-for-gymnasieskolor-i-karlskrona/",
+   "title": {
+    "rendered": "TCL arrangerade hackathon för gymnasieskolor i Karlskrona"
+   }
+  },
+  {
+   "id": 19628,
+   "date": "2024-04-09T11:50:43",
+   "modified": "2024-04-09T11:55:15",
+   "slug": "digital-content-producer-for-marine-technology-center-of-sweden",
+   "link": "https://www.bluesciencepark.se/aktuellt/digital-content-producer-for-marine-technology-center-of-sweden/",
+   "title": {
+    "rendered": "Digital Content Producer för Marine Technology Center of Sweden"
+   }
+  },
+  {
+   "id": 19625,
+   "date": "2024-04-09T11:48:31",
+   "modified": "2024-04-10T21:03:04",
+   "slug": "promis-kostnadsfria-hogskolekurser-inom-cybersakerhet",
+   "link": "https://www.bluesciencepark.se/aktuellt/promis-kostnadsfria-hogskolekurser-inom-cybersakerhet/",
+   "title": {
+    "rendered": "PROMIS – kostnadsfria högskolekurser inom cybersäkerhet"
+   }
+  },
+  {
+   "id": 17883,
+   "date": "2024-01-30T11:19:17",
+   "modified": "2024-01-30T11:21:50",
+   "slug": "sakra-din-plats-i-kostnadsfri-cybersakerhetsutbildning-vid-linkopings-universitet-via-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/sakra-din-plats-i-kostnadsfri-cybersakerhetsutbildning-vid-linkopings-universitet-via-blue-science-park/",
+   "title": {
+    "rendered": "Säkra din plats i kostnadsfri cybersäkerhetsutbildning vid Linköpings universitet, via Blue Science Park"
+   }
+  },
+  {
+   "id": 17778,
+   "date": "2023-11-24T14:42:22",
+   "modified": "2023-11-27T09:27:22",
+   "slug": "nationella-sakerhetsdagen-darfor-ar-den-viktig",
+   "link": "https://www.bluesciencepark.se/aktuellt/nationella-sakerhetsdagen-darfor-ar-den-viktig/",
+   "title": {
+    "rendered": "Nationella säkerhetsdagen &#8211; därför är den viktig"
+   }
+  },
+  {
+   "id": 17748,
+   "date": "2023-11-21T10:12:25",
+   "modified": "2023-11-24T13:40:36",
+   "slug": "tech-concept-lab-innovationssprint",
+   "link": "https://www.bluesciencepark.se/aktuellt/featured-1/tech-concept-lab-innovationssprint/",
+   "title": {
+    "rendered": "Tech Concept Lab Hackaton x Cleura och BBI"
+   }
+  },
+  {
+   "id": 17721,
+   "date": "2023-11-07T11:08:46",
+   "modified": "2023-11-07T11:14:50",
+   "slug": "nationella-sakerhetsdagen-2",
+   "link": "https://www.bluesciencepark.se/aktuellt/nationella-sakerhetsdagen-2/",
+   "title": {
+    "rendered": "Nationella säkerhetsdagen"
+   }
+  },
+  {
+   "id": 17096,
+   "date": "2023-10-12T18:17:34",
+   "modified": "2023-10-13T12:34:12",
+   "slug": "tcl-hackathon-med-outpost-24-blekinge-tekniska-hogskola-och-hyper-island",
+   "link": "https://www.bluesciencepark.se/aktuellt/featured-2/tcl-hackathon-med-outpost-24-blekinge-tekniska-hogskola-och-hyper-island/",
+   "title": {
+    "rendered": "TCL Hackathon med outpost 24, Blekinge tekniska högskola och Hyper Island"
+   }
+  },
+  {
+   "id": 17075,
+   "date": "2023-10-11T10:36:30",
+   "modified": "2023-10-11T10:36:31",
+   "slug": "ny-hubb-ska-oka-cybersakerheten-hos-svenska-foretag",
+   "link": "https://www.bluesciencepark.se/aktuellt/ny-hubb-ska-oka-cybersakerheten-hos-svenska-foretag/",
+   "title": {
+    "rendered": "Ny hubb ska öka cybersäkerheten hos svenska företag"
+   }
+  },
+  {
+   "id": 16998,
+   "date": "2023-10-03T15:34:03",
+   "modified": "2023-10-03T15:34:04",
+   "slug": "blue-science-park-stod-vard-for-prisutdelning-av-innovationspriset-fran-stiftelsen-skapa",
+   "link": "https://www.bluesciencepark.se/aktuellt/blue-science-park-stod-vard-for-prisutdelning-av-innovationspriset-fran-stiftelsen-skapa/",
+   "title": {
+    "rendered": "Blue Science Park stod värd för prisutdelning av innovationspriset från stiftelsen Skapa"
+   }
+  },
+  {
+   "id": 16991,
+   "date": "2023-10-02T13:47:31",
+   "modified": "2023-10-02T13:47:31",
+   "slug": "blue-science-park-haller-prisutdelning-for-innovationspriset-fran-stiftelsen-skapa",
+   "link": "https://www.bluesciencepark.se/aktuellt/blue-science-park-haller-prisutdelning-for-innovationspriset-fran-stiftelsen-skapa/",
+   "title": {
+    "rendered": "Blue Science Park håller prisutdelning för innovationspriset från stiftelsen Skapa"
+   }
+  },
+  {
+   "id": 16930,
+   "date": "2023-09-21T11:50:20",
+   "modified": "2023-10-10T15:27:51",
+   "slug": "marine-innovation-day-2023-blev-ett-lyckat-event",
+   "link": "https://www.bluesciencepark.se/aktuellt/marine-innovation-day-2023-blev-ett-lyckat-event/",
+   "title": {
+    "rendered": "Marine Innovation Day 2023 blev ett lyckat event!"
+   }
+  },
+  {
+   "id": 16852,
+   "date": "2023-09-18T10:10:39",
+   "modified": "2023-09-21T11:52:33",
+   "slug": "forsvarsministern-talar-vid-unik-marinteknisk-konferens-i-karlskrona",
+   "link": "https://www.bluesciencepark.se/aktuellt/forsvarsministern-talar-vid-unik-marinteknisk-konferens-i-karlskrona/",
+   "title": {
+    "rendered": "Försvarsministern talar vid unik marinteknisk konferens i Karlskrona"
+   }
+  },
+  {
+   "id": 16791,
+   "date": "2023-09-08T11:14:35",
+   "modified": "2023-09-08T11:14:37",
+   "slug": "onsdagslunch-med-blue-science-park-startar-igen",
+   "link": "https://www.bluesciencepark.se/event-arkiv/onsdagslunch-med-blue-science-park-startar-igen/",
+   "title": {
+    "rendered": "Onsdagslunch med Blue Science Park startar igen!"
+   }
+  },
+  {
+   "id": 16686,
+   "date": "2023-06-30T14:19:07",
+   "modified": "2023-06-30T14:20:57",
+   "slug": "lyckat-event-om-testmojligheter-hos-bth-innovation-labs",
+   "link": "https://www.bluesciencepark.se/aktuellt/lyckat-event-om-testmojligheter-hos-bth-innovation-labs/",
+   "title": {
+    "rendered": "Lyckat event om testmöjligheter hos BTH Innovation Labs"
+   }
+  },
+  {
+   "id": 16665,
+   "date": "2023-06-19T15:03:26",
+   "modified": "2023-06-19T15:03:27",
+   "slug": "nytt-cybersakerhetscenter-i-sverige-truesec-ar-initiativtagare",
+   "link": "https://www.bluesciencepark.se/digital-case-study/nytt-cybersakerhetscenter-i-sverige-truesec-ar-initiativtagare/",
+   "title": {
+    "rendered": "Nytt cybersäkerhetscenter i Sverige, Truesec är initiativtagare"
+   }
+  },
+  {
+   "id": 16658,
+   "date": "2023-06-15T14:02:10",
+   "modified": "2023-06-15T15:58:55",
+   "slug": "ett-steg-narmare-varldens-forsta-ai-lagstiftning",
+   "link": "https://www.bluesciencepark.se/aktuellt/ett-steg-narmare-varldens-forsta-ai-lagstiftning/",
+   "title": {
+    "rendered": "Ett steg närmare världens första AI-lagstiftning"
+   }
+  },
+  {
+   "id": 16598,
+   "date": "2023-05-10T17:35:11",
+   "modified": "2023-05-26T17:49:12",
+   "slug": "truesec-inleder-stort-samarbete",
+   "link": "https://www.bluesciencepark.se/aktuellt/truesec-inleder-stort-samarbete/",
+   "title": {
+    "rendered": "Fujitsu inleder stort samarbete med marknadsledande Truesec"
+   }
+  },
+  {
+   "id": 16317,
+   "date": "2023-03-13T16:15:02",
+   "modified": "2023-05-03T11:12:00",
+   "slug": "tech-concept-hack",
+   "link": "https://www.bluesciencepark.se/aktuellt/tech-concept-hack/",
+   "title": {
+    "rendered": "Tech Concept Hack!"
+   }
+  },
+  {
+   "id": 14091,
+   "date": "2023-01-12T12:44:10",
+   "modified": "2023-06-30T11:32:31",
+   "slug": "lunch-med-blue-science-park",
+   "link": "https://www.bluesciencepark.se/event-arkiv/lunch-med-blue-science-park/",
+   "title": {
+    "rendered": "Lunch med Blue Science Park fortsätter under våren!"
+   }
+  },
+  {
+   "id": 14335,
+   "date": "2023-01-11T10:00:15",
+   "modified": "2023-05-24T15:38:55",
+   "slug": "marin-onsdag-med-saab-kockums",
+   "link": "https://www.bluesciencepark.se/marin-teknik-case-study/marin-onsdag-med-saab-kockums/",
+   "title": {
+    "rendered": "Marin-onsdag!"
+   }
+  },
+  {
+   "id": 15153,
+   "date": "2022-11-18T16:57:26",
+   "modified": "2023-01-13T10:12:05",
+   "slug": "bth-ger-utbildningar-inom-cybersakerhet-for-yrkesverksamma-kombinera-arbete-och-studier",
+   "link": "https://www.bluesciencepark.se/digital-case-study/bth-ger-utbildningar-inom-cybersakerhet-for-yrkesverksamma-kombinera-arbete-och-studier/",
+   "title": {
+    "rendered": "BTH ger utbildningar inom cybersäkerhet, riktade mot yrkesverksamma. Kombinera arbete och studier."
+   }
+  },
+  {
+   "id": 14342,
+   "date": "2022-10-06T10:51:42",
+   "modified": "2023-03-13T16:15:37",
+   "slug": "blekingeprojekt-ska-ge-sakrare-energiforsorjning-i-europa",
+   "link": "https://www.bluesciencepark.se/digital-case-study/blekingeprojekt-ska-ge-sakrare-energiforsorjning-i-europa/",
+   "title": {
+    "rendered": "Blekingeprojekt ska ge säkrare energiförsörjning i Europa."
+   }
+  },
+  {
+   "id": 12737,
+   "date": "2022-09-12T15:03:00",
+   "modified": "2022-11-18T11:29:21",
+   "slug": "nationella-sakerhetsdagen",
+   "link": "https://www.bluesciencepark.se/inspiration-och-kompetens/nationella-sakerhetsdagen/",
+   "title": {
+    "rendered": "Nationella säkerhetsdagen 2022 blev ett mycket lyckat event!"
+   }
+  },
+  {
+   "id": 13042,
+   "date": "2022-07-22T11:49:06",
+   "modified": "2022-10-28T15:41:12",
+   "slug": "traffa-ninni-och-rebecca",
+   "link": "https://www.bluesciencepark.se/marin-teknik-case-study/traffa-ninni-och-rebecca/",
+   "title": {
+    "rendered": "Träffa Ninni och Rebecca"
+   }
+  },
+  {
+   "id": 12722,
+   "date": "2022-06-28T13:52:41",
+   "modified": "2022-10-06T11:11:30",
+   "slug": "vi-blir-en-del-av-ett-nytt-europeiskt-center-for-digitalisering",
+   "link": "https://www.bluesciencepark.se/digital-case-study/vi-blir-en-del-av-ett-nytt-europeiskt-center-for-digitalisering/",
+   "title": {
+    "rendered": "Vi blir en del av ett nytt europeiskt center för digitalisering "
+   }
+  },
+  {
+   "id": 12552,
+   "date": "2022-06-20T17:11:42",
+   "modified": "2022-10-28T15:41:01",
+   "slug": "marine-technology-center-of-sweden",
+   "link": "https://www.bluesciencepark.se/marin-teknik-case-study/marine-technology-center-of-sweden/",
+   "title": {
+    "rendered": "Lansering av Marine Technology Center of Sweden"
+   }
+  },
+  {
+   "id": 12534,
+   "date": "2022-06-15T09:58:56",
+   "modified": "2022-06-15T09:58:58",
+   "slug": "all-binary-och-malvacom-bildar-koncern",
+   "link": "https://www.bluesciencepark.se/aktuellt/all-binary-och-malvacom-bildar-koncern/",
+   "title": {
+    "rendered": "All Binary och Malvacom bildar koncern."
+   }
+  },
+  {
+   "id": 12530,
+   "date": "2022-06-14T09:17:21",
+   "modified": "2022-10-28T15:40:47",
+   "slug": "digit-hub-ai",
+   "link": "https://www.bluesciencepark.se/digital-case-study/digit-hub-ai/",
+   "title": {
+    "rendered": "Förstå affärsnyttan av artificiell intelligens"
+   }
+  },
+  {
+   "id": 12478,
+   "date": "2022-06-12T19:05:00",
+   "modified": "2022-06-09T08:37:56",
+   "slug": "bikupor-inspirerar-till-battre-boj-for-vagkraftverk",
+   "link": "https://www.bluesciencepark.se/aktuellt/bikupor-inspirerar-till-battre-boj-for-vagkraftverk/",
+   "title": {
+    "rendered": "<strong>Bikupor inspirerar till bättre boj för vågkraftverk</strong>"
+   }
+  },
+  {
+   "id": 12482,
+   "date": "2022-06-09T22:34:00",
+   "modified": "2022-06-09T08:48:19",
+   "slug": "battre-cybersakerhet-for-foretag",
+   "link": "https://www.bluesciencepark.se/aktuellt/battre-cybersakerhet-for-foretag/",
+   "title": {
+    "rendered": "Bättre cybersäkerhet för företag"
+   }
+  },
+  {
+   "id": 12469,
+   "date": "2022-06-08T13:22:22",
+   "modified": "2022-06-09T08:32:00",
+   "slug": "framgangsrikt-test-av-vagenergiomvandlare",
+   "link": "https://www.bluesciencepark.se/aktuellt/framgangsrikt-test-av-vagenergiomvandlare/",
+   "title": {
+    "rendered": "Framgångsrikt test av vågenergiomvandlare"
+   }
+  },
+  {
+   "id": 11571,
+   "date": "2022-04-05T14:34:43",
+   "modified": "2022-04-26T09:22:51",
+   "slug": "customized-online-courses-for-professionals-in-information-security",
+   "link": "https://www.bluesciencepark.se/digital-case-study/customized-online-courses-for-professionals-in-information-security/",
+   "title": {
+    "rendered": "Customized online courses for professionals in information security"
+   }
+  },
+  {
+   "id": 11522,
+   "date": "2022-04-05T14:23:38",
+   "modified": "2022-10-28T15:40:37",
+   "slug": "matchmaking-ukrainian-talents-with-with-swedish-companies",
+   "link": "https://www.bluesciencepark.se/aktuellt/matchmaking-ukrainian-talents-with-with-swedish-companies/",
+   "title": {
+    "rendered": "Matchmaking Ukrainian talents with with Swedish Companies"
+   }
+  },
+  {
+   "id": 11201,
+   "date": "2022-03-14T15:07:57",
+   "modified": "2023-02-13T09:02:12",
+   "slug": "digitalisering-for-framtiden",
+   "link": "https://www.bluesciencepark.se/aktuellt/digitalisering-for-framtiden/",
+   "title": {
+    "rendered": "På DN Debatt diskuterar vi cybersäkerhet"
+   }
+  },
+  {
+   "id": 10850,
+   "date": "2022-01-25T08:31:38",
+   "modified": "2022-10-28T15:40:26",
+   "slug": "forsakringskassan-i-samarbete-med-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/forsakringskassan-i-samarbete-med-blue-science-park/",
+   "title": {
+    "rendered": "Försäkringskassan i samarbete med Blue Science park"
+   }
+  },
+  {
+   "id": 11220,
+   "date": "2022-01-02T10:21:00",
+   "modified": "2022-10-28T15:40:07",
+   "slug": "a-cyber-security-strategy-for-the-maritime-industry-in-the-south-baltic-region-has-been-developed",
+   "link": "https://www.bluesciencepark.se/secmar/a-cyber-security-strategy-for-the-maritime-industry-in-the-south-baltic-region-has-been-developed/",
+   "title": {
+    "rendered": "A cyber security strategy for the maritime industry in the South Baltic region has been developed"
+   }
+  },
+  {
+   "id": 10720,
+   "date": "2021-12-15T12:08:19",
+   "modified": "2022-04-05T14:25:00",
+   "slug": "gratis-utbildningar-med-coskill",
+   "link": "https://www.bluesciencepark.se/aktuellt/gratis-utbildningar-med-coskill/",
+   "title": {
+    "rendered": "Gratis utbildningar med CoSkill"
+   }
+  },
+  {
+   "id": 10836,
+   "date": "2021-12-10T11:34:00",
+   "modified": "2022-03-14T09:04:04",
+   "slug": "secmar-the-movie-or-as-we-like-to-call-it-the-success-story",
+   "link": "https://www.bluesciencepark.se/secmar/secmar-the-movie-or-as-we-like-to-call-it-the-success-story/",
+   "title": {
+    "rendered": "SECMAR &#8211; The movie&#8230;or as we like to call it the success story"
+   }
+  },
+  {
+   "id": 10884,
+   "date": "2021-12-09T09:45:00",
+   "modified": "2022-01-24T09:53:19",
+   "slug": "report-on-cyber-physical-security-in-drone-managment",
+   "link": "https://www.bluesciencepark.se/secmar/report-on-cyber-physical-security-in-drone-managment/",
+   "title": {
+    "rendered": "Report on cyber &#8211; physical security in Drone Managment"
+   }
+  },
+  {
+   "id": 10688,
+   "date": "2021-12-07T07:30:27",
+   "modified": "2022-04-27T16:10:26",
+   "slug": "titta-igen-blekinge-ai-arena-iii",
+   "link": "https://www.bluesciencepark.se/aktuellt/titta-igen-blekinge-ai-arena-iii/",
+   "title": {
+    "rendered": "Titta igen: BLEKINGE AI ARENA III"
+   }
+  },
+  {
+   "id": 10825,
+   "date": "2021-11-10T09:23:00",
+   "modified": "2022-01-10T11:34:39",
+   "slug": "self-assessment-guide-for-small-and-medium-sized-ports-in-regard-to-cyber-security",
+   "link": "https://www.bluesciencepark.se/secmar/self-assessment-guide-for-small-and-medium-sized-ports-in-regard-to-cyber-security/",
+   "title": {
+    "rendered": "Self-assessment guide for small and medium sized ports in regard to cyber security."
+   }
+  },
+  {
+   "id": 10580,
+   "date": "2021-10-12T14:54:00",
+   "modified": "2021-10-25T15:07:21",
+   "slug": "wargame-in-klaipeda",
+   "link": "https://www.bluesciencepark.se/secmar/wargame-in-klaipeda/",
+   "title": {
+    "rendered": "WARGAME in Klaipeda"
+   }
+  },
+  {
+   "id": 10512,
+   "date": "2021-10-08T10:14:48",
+   "modified": "2022-01-13T06:56:34",
+   "slug": "blekinges-kommuner-samverkar-i-upphandling-kring-trygghetsskapande-teknik",
+   "link": "https://www.bluesciencepark.se/aktuellt/blekinges-kommuner-samverkar-i-upphandling-kring-trygghetsskapande-teknik/",
+   "title": {
+    "rendered": "Blekinges kommuner samverkar i upphandling kring Trygghetsskapande Teknik"
+   }
+  },
+  {
+   "id": 10313,
+   "date": "2021-10-05T07:26:30",
+   "modified": "2021-12-21T12:27:59",
+   "slug": "titta-igen-blekinge-ai-arena-ii",
+   "link": "https://www.bluesciencepark.se/aktuellt/titta-igen-blekinge-ai-arena-ii/",
+   "title": {
+    "rendered": "Titta igen: BLEKINGE AI ARENA II"
+   }
+  },
+  {
+   "id": 9971,
+   "date": "2021-09-29T14:20:33",
+   "modified": "2021-09-29T14:22:35",
+   "slug": "na-resultat-med-ratt-kunskaper-kostnadsfria-livestreamade-kurser-i-blekinge",
+   "link": "https://www.bluesciencepark.se/aktuellt/na-resultat-med-ratt-kunskaper-kostnadsfria-livestreamade-kurser-i-blekinge/",
+   "title": {
+    "rendered": "Nå resultat med rätt kunskaper- kostnadsfria livestreamade kurser i Blekinge"
+   }
+  },
+  {
+   "id": 9947,
+   "date": "2021-09-23T10:52:26",
+   "modified": "2021-09-23T11:03:44",
+   "slug": "medlemsnyhet-truesec-och-atea-arets-partner-pa-microsoft-partner-inspiration-day-2021",
+   "link": "https://www.bluesciencepark.se/aktuellt/medlemsnyhet-truesec-och-atea-arets-partner-pa-microsoft-partner-inspiration-day-2021/",
+   "title": {
+    "rendered": "Medlemsnyhet: Truesec och Atea &#8211; årets partner på Microsoft Partner Inspiration Day 2021"
+   }
+  },
+  {
+   "id": 9921,
+   "date": "2021-09-22T10:10:39",
+   "modified": "2021-09-22T10:15:14",
+   "slug": "mot-team-reglove-tech-concept-lab-har-hjalpt-oss-driva-var-ide-framat",
+   "link": "https://www.bluesciencepark.se/aktuellt/mot-team-reglove-tech-concept-lab-har-hjalpt-oss-driva-var-ide-framat/",
+   "title": {
+    "rendered": "Möt Team ReGlove – &#8221;Tech Concept Lab har hjälpt oss driva vår idé framåt&#8221;"
+   }
+  },
+  {
+   "id": 9853,
+   "date": "2021-09-08T15:26:24",
+   "modified": "2021-09-08T15:26:26",
+   "slug": "medlemsnyhet-embeddedart-i-nytt-forskningsprojekt-som-ska-hitta-forlorade-redskap-pa-havsbotten",
+   "link": "https://www.bluesciencepark.se/aktuellt/medlemsnyhet-embeddedart-i-nytt-forskningsprojekt-som-ska-hitta-forlorade-redskap-pa-havsbotten/",
+   "title": {
+    "rendered": "Medlemsnyhet: EmbeddedArt i nytt forskningsprojekt som ska hitta förlorade redskap på havsbotten"
+   }
+  },
+  {
+   "id": 9806,
+   "date": "2021-09-03T09:51:37",
+   "modified": "2021-09-03T09:51:39",
+   "slug": "medlemsnyhet-dubbelt-upp-med-gron-el-i-karlskrona-solpark",
+   "link": "https://www.bluesciencepark.se/aktuellt/medlemsnyhet-dubbelt-upp-med-gron-el-i-karlskrona-solpark/",
+   "title": {
+    "rendered": "Medlemsnyhet: Dubbelt upp med grön el i Karlskrona Solpark"
+   }
+  },
+  {
+   "id": 9772,
+   "date": "2021-09-03T09:23:46",
+   "modified": "2021-09-08T14:47:19",
+   "slug": "ny-webbportal-for-dig-som-jobbar-inom-samhallsbyggnadssektorn-blue-science-park-del-i-framtagandet-av-utbildningspaket",
+   "link": "https://www.bluesciencepark.se/aktuellt/ny-webbportal-for-dig-som-jobbar-inom-samhallsbyggnadssektorn-blue-science-park-del-i-framtagandet-av-utbildningspaket/",
+   "title": {
+    "rendered": "Ny webbportal för dig som jobbar inom byggprocessen – Blue Science Park del i framtagandet av utbildning"
+   }
+  },
+  {
+   "id": 9819,
+   "date": "2021-09-02T15:55:00",
+   "modified": "2021-09-03T15:57:01",
+   "slug": "workshop-promis-it-sakerhetskurser-for-foretag",
+   "link": "https://www.bluesciencepark.se/aktuellt/workshop-promis-it-sakerhetskurser-for-foretag/",
+   "title": {
+    "rendered": "Workshop: PROMIS IT-säkerhetskurser för företag"
+   }
+  },
+  {
+   "id": 9722,
+   "date": "2021-09-01T10:39:39",
+   "modified": "2022-11-18T11:26:48",
+   "slug": "blue-science-park-en-av-krafterna-som-kickstartar-lanet-efter-coronapandemin",
+   "link": "https://www.bluesciencepark.se/aktuellt/blue-science-park-en-av-krafterna-som-kickstartar-lanet-efter-coronapandemin/",
+   "title": {
+    "rendered": "Blue Science Park &#8211; en av krafterna som kickstartar länet efter coronapandemin"
+   }
+  },
+  {
+   "id": 9753,
+   "date": "2021-08-28T08:45:00",
+   "modified": "2021-09-02T11:30:31",
+   "slug": "secmar-meet-up-in-gdynia-poland",
+   "link": "https://www.bluesciencepark.se/secmar/secmar-meet-up-in-gdynia-poland/",
+   "title": {
+    "rendered": "SECMAR MEET-UP IN GDYNIA, POLAND"
+   }
+  },
+  {
+   "id": 9708,
+   "date": "2021-08-27T15:15:33",
+   "modified": "2021-09-03T11:29:02",
+   "slug": "factor10-ny-medlem-i-blue-science-park",
+   "link": "https://www.bluesciencepark.se/aktuellt/factor10-ny-medlem-i-blue-science-park/",
+   "title": {
+    "rendered": "factor10 &#8211; ny medlem i Blue Science Park"
+   }
+  },
+  {
+   "id": 9688,
+   "date": "2021-08-27T10:20:51",
+   "modified": "2021-08-27T10:43:00",
+   "slug": "pro-m-is-okar-ditt-foretags-kompetens-inom-it-sakerheten",
+   "link": "https://www.bluesciencepark.se/aktuellt/pro-m-is-okar-ditt-foretags-kompetens-inom-it-sakerheten/",
+   "title": {
+    "rendered": "PRO.M.IS ökar ditt företags kompetens inom IT-säkerhet"
+   }
+  },
+  {
+   "id": 9783,
+   "date": "2021-08-26T15:45:00",
+   "modified": "2021-09-02T15:55:28",
+   "slug": "war-was-it-good-for",
+   "link": "https://www.bluesciencepark.se/secmar/war-was-it-good-for/",
+   "title": {
+    "rendered": "WAR, WHAT IS IT GOOD FOR?"
+   }
+  },
+  {
+   "id": 9676,
+   "date": "2021-08-25T15:21:49",
+   "modified": "2021-08-25T15:47:20",
+   "slug": "porthathon-2021-blue-science-park-medarrangor-i-internationellt-hackathon",
+   "link": "https://www.bluesciencepark.se/aktuellt/featured-2-aktuellt/porthathon-2021-blue-science-park-medarrangor-i-internationellt-hackathon/",
+   "title": {
+    "rendered": "Portathon 2021 – Blue Science Park medarrangör i internationellt hackathon"
+   }
+  },
+  {
+   "id": 9776,
+   "date": "2021-08-20T15:36:00",
+   "modified": "2021-09-02T15:41:45",
+   "slug": "portahon-2021-join-now",
+   "link": "https://www.bluesciencepark.se/secmar/portahon-2021-join-now/",
+   "title": {
+    "rendered": "PORTAHON 2021 &#8211; JOIN NOW!"
+   }
+  },
+  {
+   "id": 9754,
+   "date": "2021-08-20T09:48:13",
+   "modified": "2021-09-02T09:49:24",
+   "slug": "gaia-x-pa-nationell-konferens-om-hallbar-digitalisering",
+   "link": "https://www.bluesciencepark.se/aktuellt/gaia-x-pa-nationell-konferens-om-hallbar-digitalisering/",
+   "title": {
+    "rendered": "GAIA-X på nationell konferens om hållbar digitalisering"
+   }
+  },
+  {
+   "id": 9566,
+   "date": "2021-07-02T12:30:00",
+   "modified": "2022-11-21T15:26:30",
+   "slug": "europas-digitala-innovationshubbar-flera-mojligheter-for-blekinges-smaforetagare-och-offentliga-sektor",
+   "link": "https://www.bluesciencepark.se/aktuellt/europas-digitala-innovationshubbar-flera-mojligheter-for-blekinges-smaforetagare-och-offentliga-sektor/",
+   "title": {
+    "rendered": "Europas digitala innovationshubbar – flera möjligheter för småföretagare och offentlig sektor i Blekinge"
+   }
+  },
+  {
+   "id": 9745,
+   "date": "2021-07-01T08:22:00",
+   "modified": "2021-09-02T08:40:30",
+   "slug": "digitechport-is-in-formation",
+   "link": "https://www.bluesciencepark.se/secmar/digitechport-is-in-formation/",
+   "title": {
+    "rendered": "DIGITECHPORT IS IN FORMATION"
+   }
+  },
+  {
+   "id": 9544,
+   "date": "2021-06-30T16:32:32",
+   "modified": "2021-09-03T11:20:14",
+   "slug": "embeddedart",
+   "link": "https://www.bluesciencepark.se/aktuellt/embeddedart/",
+   "title": {
+    "rendered": "Medlemsnyhet: EmbeddedArt öppnar upp för ubåtssamarbeten"
+   }
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+  "slug": "kiwa",
+  "name": "Kiwa",
+  "legal_name": "Kiwa",
+  "website": "https://www.kiwa.com/",
+  "tagline": "Testing, Inspection, and Certification services",
+  "profile_level": "partial",
+  "organisation_type": "company",
+  "is_demo_company": false,
+  "membership": {
+    "bsp_member_id": 20683,
+    "url": "https://www.bluesciencepark.se/medlem/kiwa/"
+  },
+  "pages": {
+    "about": {
+      "url": "https://www.kiwa.com/en/about-kiwa/",
+      "title": "About Kiwa",
+      "publisher": "Kiwa"
+    }
+  },
+  "claims": [
+    {
+      "field": "overview",
+      "label": "Company overview",
+      "page": "about",
+      "value": "Global partner in testing, inspection and certification (TIC) services.",
+      "excerpt": "Discover Kiwa, your global partner in Testing, Inspection, and Certification services."
+    },
+    {
+      "field": "service",
+      "label": "Testing, inspection, certification & assurance",
+      "page": "about",
+      "value": "Assurance, testing, inspection, certification, training, consultancy and data services.",
+      "excerpt": "With our assurance, testing, inspection, certification, training, consultancy and data services, we create trust in our customers' products, services, processes, (management) systems and employees."
+    },
+    {
+      "field": "capability",
+      "label": "Advanced testing laboratories (200+ locations)",
+      "page": "about",
+      "value": "Network of over 200 locations including offices and advanced testing laboratories.",
+      "excerpt": "we maintain a vast network of over 200 locations, including offices and advanced testing laboratories"
+    },
+    {
+      "field": "industry",
+      "label": "Construction, energy supply and other sectors",
+      "page": "about",
+      "value": "Market segments ranging from construction and energy supply to drinking water, healthcare, food, feed and farming; expertise includes lab testing.",
+      "excerpt": "We do so in a wide variety of markets segments, ranging from construction and energy supply to drinking water, healthcare, food, feed & farming."
+    },
+    {
+      "field": "location",
+      "label": "Operating in 35+ countries",
+      "page": "about",
+      "value": "International organisation operating in more than 35 countries; a Blekinge office is not stated in the collected source.",
+      "excerpt": "Operating in more than 35 countries"
+    }
+  ]
+}

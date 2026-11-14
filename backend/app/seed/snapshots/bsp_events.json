@@ -1,0 +1,506 @@
+{
+ "source": "bsp_events",
+ "retrieved_at": "2026-11-13T12:48:52.421251+00:00",
+ "payload": [
+  {
+   "id": 22110,
+   "date": "2026-02-03T11:14:53",
+   "modified": "2026-06-03T08:39:46",
+   "slug": "generativ-ai-pa-ett-cybersakert-satt",
+   "link": "https://www.bluesciencepark.se/event/generativ-ai-pa-ett-cybersakert-satt/",
+   "title": {
+    "rendered": "Generativ AI på ett cybersäkert sätt"
+   }
+  },
+  {
+   "id": 21638,
+   "date": "2025-06-16T15:09:32",
+   "modified": "2025-08-05T13:56:52",
+   "slug": "upplev-framtidens-konst-pa-skargardsfesten-i-karlskrona",
+   "link": "https://www.bluesciencepark.se/event/upplev-framtidens-konst-pa-skargardsfesten-i-karlskrona/",
+   "title": {
+    "rendered": "Upplev framtidens konst på Skärgårdsfesten i Karlskrona"
+   }
+  },
+  {
+   "id": 21646,
+   "date": "2025-06-16T10:19:25",
+   "modified": "2025-09-01T09:44:38",
+   "slug": "digit-hub-sweden-day",
+   "link": "https://www.bluesciencepark.se/event/digit-hub-sweden-day/",
+   "title": {
+    "rendered": "DigIT Hub Sweden Day"
+   }
+  },
+  {
+   "id": 21592,
+   "date": "2025-05-13T09:19:52",
+   "modified": "2025-06-03T13:41:57",
+   "slug": "inbjudan-till-dialog-kreativt-samskapande",
+   "link": "https://www.bluesciencepark.se/event/inbjudan-till-dialog-kreativt-samskapande/",
+   "title": {
+    "rendered": "Inbjudan till dialog &amp; kreativt samskapande"
+   }
+  },
+  {
+   "id": 21580,
+   "date": "2025-05-08T16:03:09",
+   "modified": "2025-06-03T13:40:44",
+   "slug": "pitchtraning-overtyga-och-salja",
+   "link": "https://www.bluesciencepark.se/event/pitchtraning-overtyga-och-salja/",
+   "title": {
+    "rendered": "Pitchträning &#8211; övertyga och sälja"
+   }
+  },
+  {
+   "id": 21523,
+   "date": "2025-04-01T15:20:01",
+   "modified": "2025-05-30T10:27:05",
+   "slug": "myconf-2025-maximera-varde-for-en-battre-framtid",
+   "link": "https://www.bluesciencepark.se/event/myconf-2025-maximera-varde-for-en-battre-framtid/",
+   "title": {
+    "rendered": "MyConf 2025 –  maximera värde för en bättre framtid!"
+   }
+  },
+  {
+   "id": 21448,
+   "date": "2025-03-06T19:01:38",
+   "modified": "2025-04-15T13:39:12",
+   "slug": "techtank-day",
+   "link": "https://www.bluesciencepark.se/event/techtank-day/",
+   "title": {
+    "rendered": "Techtank Day"
+   }
+  },
+  {
+   "id": 21322,
+   "date": "2025-02-10T14:50:01",
+   "modified": "2025-03-03T14:51:21",
+   "slug": "forvandla-karlskrona-skargard-till-ett-konstverk",
+   "link": "https://www.bluesciencepark.se/event/forvandla-karlskrona-skargard-till-ett-konstverk/",
+   "title": {
+    "rendered": "Skapa digitala konstverk under Skärgårdsfesten 2025"
+   }
+  },
+  {
+   "id": 20290,
+   "date": "2024-10-23T10:20:39",
+   "modified": "2024-11-18T09:01:53",
+   "slug": "stew-swedsofts-software-technology-exchange-workshop-2024",
+   "link": "https://www.bluesciencepark.se/event/stew-swedsofts-software-technology-exchange-workshop-2024/",
+   "title": {
+    "rendered": "STEW &#8211; Swedsoft&#8217;s Software Technology Exchange Workshop 2024"
+   }
+  },
+  {
+   "id": 20247,
+   "date": "2024-10-15T08:28:23",
+   "modified": "2024-11-11T11:50:40",
+   "slug": "utbildning-inom-generativ-ai-workshops",
+   "link": "https://www.bluesciencepark.se/event/utbildning-inom-generativ-ai-workshops/",
+   "title": {
+    "rendered": "Utbildning inom generativ AI &#8211; workshops"
+   }
+  },
+  {
+   "id": 20261,
+   "date": "2024-10-14T14:47:02",
+   "modified": "2024-10-28T10:32:58",
+   "slug": "ai-forelasning-med-linus-ekenstam-och-softhouse",
+   "link": "https://www.bluesciencepark.se/event/ai-forelasning-med-linus-ekenstam-och-softhouse/",
+   "title": {
+    "rendered": "AI-föreläsning med Linus Ekenstam och SoftHouse"
+   }
+  },
+  {
+   "id": 20181,
+   "date": "2024-09-22T12:24:32",
+   "modified": "2024-10-21T10:16:15",
+   "slug": "tab-design-sprint",
+   "link": "https://www.bluesciencepark.se/event/tab-design-sprint/",
+   "title": {
+    "rendered": "Carl Film Forum &amp; TAB Creative Sprint"
+   }
+  },
+  {
+   "id": 20121,
+   "date": "2024-08-23T09:25:32",
+   "modified": "2024-10-16T11:02:16",
+   "slug": "swedish-ai-startup-landscape",
+   "link": "https://www.bluesciencepark.se/event/swedish-ai-startup-landscape/",
+   "title": {
+    "rendered": "Swedish AI Startup Landscape"
+   }
+  },
+  {
+   "id": 20006,
+   "date": "2024-06-10T10:55:41",
+   "modified": "2024-09-27T09:17:56",
+   "slug": "step-into-the-ai-frontier-techheads-2024-agenda-released",
+   "link": "https://www.bluesciencepark.se/event/step-into-the-ai-frontier-techheads-2024-agenda-released/",
+   "title": {
+    "rendered": "Step Into the AI Frontier: TechHeads 2024"
+   }
+  },
+  {
+   "id": 19930,
+   "date": "2024-05-14T09:02:11",
+   "modified": "2024-05-27T08:11:39",
+   "slug": "imagine-harder",
+   "link": "https://www.bluesciencepark.se/event/imagine-harder/",
+   "title": {
+    "rendered": "TCL Innovationssprint"
+   }
+  },
+  {
+   "id": 19872,
+   "date": "2024-05-10T13:04:59",
+   "modified": "2024-06-25T09:40:59",
+   "slug": "ta-din-kunskap-inom-ai-till-nasta-niva-med-johan-salo",
+   "link": "https://www.bluesciencepark.se/event/ta-din-kunskap-inom-ai-till-nasta-niva-med-johan-salo/",
+   "title": {
+    "rendered": "Ta din kunskap inom AI till nästa nivå med Johan Salo!"
+   }
+  },
+  {
+   "id": 19871,
+   "date": "2024-05-10T12:37:54",
+   "modified": "2024-05-22T13:21:54",
+   "slug": "din-inbjudan-till-det-storsta-natverksexpot-i-sydost",
+   "link": "https://www.bluesciencepark.se/event/din-inbjudan-till-det-storsta-natverksexpot-i-sydost/",
+   "title": {
+    "rendered": "DIN INBJUDAN TILL DET STÖRSTA NÄTVERKSEXPOT I SYDOST!"
+   }
+  },
+  {
+   "id": 19843,
+   "date": "2024-04-29T11:10:14",
+   "modified": "2025-05-30T10:24:33",
+   "slug": "marine-innovation-day-2024",
+   "link": "https://www.bluesciencepark.se/event/marine-innovation-day-2024/",
+   "title": {
+    "rendered": "Marine Innovation Day 2025"
+   }
+  },
+  {
+   "id": 19757,
+   "date": "2024-04-18T18:11:09",
+   "modified": "2024-05-23T10:36:19",
+   "slug": "lansering-av-blekinges-platsvarumarke",
+   "link": "https://www.bluesciencepark.se/event/lansering-av-blekinges-platsvarumarke/",
+   "title": {
+    "rendered": "Lansering av Blekinges platsvarumärke"
+   }
+  },
+  {
+   "id": 19623,
+   "date": "2024-04-09T11:39:04",
+   "modified": "2024-05-22T13:22:41",
+   "slug": "myconf-maximera-varde-for-en-battre-framtid",
+   "link": "https://www.bluesciencepark.se/event/myconf-maximera-varde-for-en-battre-framtid/",
+   "title": {
+    "rendered": "MyConf – Maximera värde för en bättre framtid"
+   }
+  },
+  {
+   "id": 19620,
+   "date": "2024-04-09T11:33:10",
+   "modified": "2025-10-01T15:42:52",
+   "slug": "ai-lab-pa-ericsson-space",
+   "link": "https://www.bluesciencepark.se/event/ai-lab-pa-ericsson-space/",
+   "title": {
+    "rendered": "AI Lab på Ericsson Space &#8211; BTH"
+   }
+  },
+  {
+   "id": 19617,
+   "date": "2024-04-09T11:26:32",
+   "modified": "2024-04-29T10:43:52",
+   "slug": "inspireras-till-ett-strategiskt-hallbarhetsarbete-och-dess-affarsnytta",
+   "link": "https://www.bluesciencepark.se/event/inspireras-till-ett-strategiskt-hallbarhetsarbete-och-dess-affarsnytta/",
+   "title": {
+    "rendered": "Inspireras till ett strategiskt hållbarhetsarbete och dess affärsnytta!"
+   }
+  },
+  {
+   "id": 19614,
+   "date": "2024-04-09T11:14:19",
+   "modified": "2024-12-18T11:33:56",
+   "slug": "passionsdriven-ekonomi",
+   "link": "https://www.bluesciencepark.se/event/passionsdriven-ekonomi/",
+   "title": {
+    "rendered": "Passionsdriven ekonomi &#8211; en heldag om innovation och kreativitet!"
+   }
+  },
+  {
+   "id": 19575,
+   "date": "2024-04-08T15:18:59",
+   "modified": "2024-04-29T10:44:35",
+   "slug": "techtank-day-industrins-grona-omstallning-och-kompetensforsorjning",
+   "link": "https://www.bluesciencepark.se/event/techtank-day-industrins-grona-omstallning-och-kompetensforsorjning/",
+   "title": {
+    "rendered": "Techtank Day &#8211; Industrins gröna omställning och kompetensförsörjning"
+   }
+  },
+  {
+   "id": 17864,
+   "date": "2024-01-30T15:08:53",
+   "modified": "2025-05-30T10:23:21",
+   "slug": "utbildning-i-grundlaggande-cybersakerhet-vid-linkopings-universitet",
+   "link": "https://www.bluesciencepark.se/event/utbildning-i-grundlaggande-cybersakerhet-vid-linkopings-universitet/",
+   "title": {
+    "rendered": "Utbildning i Grundläggande cybersäkerhet 2025"
+   }
+  },
+  {
+   "id": 17858,
+   "date": "2023-12-22T08:03:01",
+   "modified": "2024-04-09T09:09:31",
+   "slug": "framtidens-kvantsensorer",
+   "link": "https://www.bluesciencepark.se/event/framtidens-kvantsensorer/",
+   "title": {
+    "rendered": "Framtidens kvantsensorer"
+   }
+  },
+  {
+   "id": 17846,
+   "date": "2023-12-20T08:48:53",
+   "modified": "2024-04-09T09:10:34",
+   "slug": "natverkstraff-med-soff-och-sme-d",
+   "link": "https://www.bluesciencepark.se/event/natverkstraff-med-soff-och-sme-d/",
+   "title": {
+    "rendered": "Nätverksträff med SOFF och SME-D"
+   }
+  },
+  {
+   "id": 17844,
+   "date": "2023-12-20T08:42:06",
+   "modified": "2024-01-22T10:15:54",
+   "slug": "dual-use-civilt-stod-till-militara-forband",
+   "link": "https://www.bluesciencepark.se/event/dual-use-civilt-stod-till-militara-forband/",
+   "title": {
+    "rendered": "Dual-use: Civilt stöd till militära förband"
+   }
+  },
+  {
+   "id": 17804,
+   "date": "2023-12-04T11:26:50",
+   "modified": "2023-12-18T10:49:06",
+   "slug": "jullunch-med-blue-science-park",
+   "link": "https://www.bluesciencepark.se/event/jullunch-med-blue-science-park/",
+   "title": {
+    "rendered": "Jullunch med Blue Science Park"
+   }
+  },
+  {
+   "id": 17793,
+   "date": "2023-11-28T15:04:05",
+   "modified": "2024-04-09T09:10:10",
+   "slug": "framtidssakra-din-verksamhet",
+   "link": "https://www.bluesciencepark.se/event/framtidssakra-din-verksamhet/",
+   "title": {
+    "rendered": "Framtidssäkra din verksamhet"
+   }
+  },
+  {
+   "id": 17730,
+   "date": "2023-11-09T13:35:19",
+   "modified": "2023-11-27T09:44:11",
+   "slug": "utbildning-inom-cybersakerhet-for-utvecklare",
+   "link": "https://www.bluesciencepark.se/event/utbildning-inom-cybersakerhet-for-utvecklare/",
+   "title": {
+    "rendered": "UTBILDNING INOM CYBERSÄKERHET FÖR UTVECKLARE"
+   }
+  },
+  {
+   "id": 17727,
+   "date": "2023-11-08T15:52:06",
+   "modified": "2024-12-18T11:31:59",
+   "slug": "ai-lab-at-the-pot",
+   "link": "https://www.bluesciencepark.se/event/ai-lab-at-the-pot/",
+   "title": {
+    "rendered": "AI Lab at The Pot"
+   }
+  },
+  {
+   "id": 17693,
+   "date": "2023-10-26T11:50:56",
+   "modified": "2023-11-27T09:43:02",
+   "slug": "elmia-subcontractor",
+   "link": "https://www.bluesciencepark.se/event/elmia-subcontractor/",
+   "title": {
+    "rendered": "Elmia Subcontractor"
+   }
+  },
+  {
+   "id": 17675,
+   "date": "2023-10-20T13:12:29",
+   "modified": "2023-11-27T09:37:07",
+   "slug": "panelsamtal-343-ar-av-innovation-i-varldsarvet-orlogstaden-karlskrona",
+   "link": "https://www.bluesciencepark.se/event/panelsamtal-343-ar-av-innovation-i-varldsarvet-orlogstaden-karlskrona/",
+   "title": {
+    "rendered": "Panelsamtal &#8221;343 år av innovation i världsarvet Örlogstaden Karlskrona&#8221;"
+   }
+  },
+  {
+   "id": 17655,
+   "date": "2023-10-18T11:20:45",
+   "modified": "2023-11-27T09:42:29",
+   "slug": "tech-concept-lab-hackaton-x-cleura",
+   "link": "https://www.bluesciencepark.se/event/tech-concept-lab-hackaton-x-cleura/",
+   "title": {
+    "rendered": "Tech Concept Lab Hackaton x Cleura"
+   }
+  },
+  {
+   "id": 16874,
+   "date": "2023-10-02T13:26:37",
+   "modified": "2025-12-04T09:19:53",
+   "slug": "onsdagslunch-med-blue-science-park",
+   "link": "https://www.bluesciencepark.se/event/onsdagslunch-med-blue-science-park/",
+   "title": {
+    "rendered": "Onsdagslunch med Blue Science Park"
+   }
+  },
+  {
+   "id": 16933,
+   "date": "2023-09-21T11:09:28",
+   "modified": "2024-05-13T15:01:49",
+   "slug": "valkommen-till-marin-onsdag-4-oktober",
+   "link": "https://www.bluesciencepark.se/event/valkommen-till-marin-onsdag-4-oktober/",
+   "title": {
+    "rendered": "Välkommen till Marin-onsdag 4 oktober!"
+   }
+  },
+  {
+   "id": 16835,
+   "date": "2023-09-16T21:25:13",
+   "modified": "2023-10-13T13:01:25",
+   "slug": "marine-innovation-day-2023",
+   "link": "https://www.bluesciencepark.se/event/marine-innovation-day-2023/",
+   "title": {
+    "rendered": "Marine Innovation Day 2023"
+   }
+  },
+  {
+   "id": 16834,
+   "date": "2023-09-16T21:06:09",
+   "modified": "2023-12-04T08:10:05",
+   "slug": "ai-arena-pa-the-pot-2",
+   "link": "https://www.bluesciencepark.se/event/ai-arena-pa-the-pot-2/",
+   "title": {
+    "rendered": "AI Lab på The Pot"
+   }
+  },
+  {
+   "id": 16830,
+   "date": "2023-09-15T16:27:00",
+   "modified": "2023-10-13T13:03:22",
+   "slug": "tech-concept-lab-hackaton",
+   "link": "https://www.bluesciencepark.se/event/tech-concept-lab-hackaton/",
+   "title": {
+    "rendered": "Tech Concept Lab Hackaton"
+   }
+  },
+  {
+   "id": 16827,
+   "date": "2023-09-15T15:37:23",
+   "modified": "2023-10-25T10:23:57",
+   "slug": "hackathon-om-it-och-datorsakerhet-med-telenor",
+   "link": "https://www.bluesciencepark.se/event/hackathon-om-it-och-datorsakerhet-med-telenor/",
+   "title": {
+    "rendered": "Hackathon om IT- och Datorsäkerhet med Telenor"
+   }
+  },
+  {
+   "id": 16822,
+   "date": "2023-09-15T14:57:15",
+   "modified": "2023-11-27T09:39:21",
+   "slug": "nationella-sakerhetsdagen-2023",
+   "link": "https://www.bluesciencepark.se/event/nationella-sakerhetsdagen-2023/",
+   "title": {
+    "rendered": "Nationella säkerhetsdagen 2023"
+   }
+  },
+  {
+   "id": 16748,
+   "date": "2023-08-16T15:44:12",
+   "modified": "2024-05-13T14:57:47",
+   "slug": "get-ready-for-the-dragons-with-digit-hub",
+   "link": "https://www.bluesciencepark.se/event/get-ready-for-the-dragons-with-digit-hub/",
+   "title": {
+    "rendered": "Get ready for the dragons with DigIT Hub!"
+   }
+  },
+  {
+   "id": 16674,
+   "date": "2023-06-30T13:32:16",
+   "modified": "2023-10-13T13:02:38",
+   "slug": "finansiering-till-innovationsideer",
+   "link": "https://www.bluesciencepark.se/event/finansiering-till-innovationsideer/",
+   "title": {
+    "rendered": "Finansiering till innovationsidéer"
+   }
+  },
+  {
+   "id": 16636,
+   "date": "2023-05-31T17:17:32",
+   "modified": "2023-12-20T08:44:02",
+   "slug": "informationstraff-pa-bth-innovation-labs",
+   "link": "https://www.bluesciencepark.se/event/informationstraff-pa-bth-innovation-labs/",
+   "title": {
+    "rendered": "Informationsträff på BTH Innovation Labs"
+   }
+  },
+  {
+   "id": 16561,
+   "date": "2023-05-17T14:15:28",
+   "modified": "2024-05-13T15:01:21",
+   "slug": "valkommen-till-marin-onsdag-30-augusti",
+   "link": "https://www.bluesciencepark.se/event/valkommen-till-marin-onsdag-30-augusti/",
+   "title": {
+    "rendered": "Välkommen till Marin-onsdag 30 augusti!"
+   }
+  },
+  {
+   "id": 16564,
+   "date": "2023-05-16T18:46:38",
+   "modified": "2024-04-09T09:08:47",
+   "slug": "frukostseminarium-med-fokus-pa-europas-digitala-transformation",
+   "link": "https://www.bluesciencepark.se/event/frukostseminarium-med-fokus-pa-europas-digitala-transformation/",
+   "title": {
+    "rendered": "Frukostseminarium med fokus på Europas digitala transformation"
+   }
+  },
+  {
+   "id": 16562,
+   "date": "2023-05-16T18:33:50",
+   "modified": "2024-12-18T11:33:08",
+   "slug": "ai-arena-pa-the-pot",
+   "link": "https://www.bluesciencepark.se/event/ai-arena-pa-the-pot/",
+   "title": {
+    "rendered": "AI ARENA på The Pot"
+   }
+  },
+  {
+   "id": 16478,
+   "date": "2023-05-02T12:39:31",
+   "modified": "2024-04-09T09:06:47",
+   "slug": "big-thinking-in-blekinge",
+   "link": "https://www.bluesciencepark.se/event/big-thinking-in-blekinge/",
+   "title": {
+    "rendered": "Big Thinking in Blekinge"
+   }
+  },
+  {
+   "id": 16389,
+   "date": "2023-03-29T07:41:07",
+   "modified": "2023-04-03T11:14:53",
+   "slug": "nytt-natverk-kvinnor-leder",
+   "link": "https://www.bluesciencepark.se/event/nytt-natverk-kvinnor-leder/",
+   "title": {
+    "rendered": "Nytt nätverk – Kvinnor leder"
+   }
+  }
+ ]
+}

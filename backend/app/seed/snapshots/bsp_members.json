@@ -1,0 +1,566 @@
+{
+ "source": "bsp_members",
+ "retrieved_at": "2026-11-13T12:48:47.974618+00:00",
+ "payload": [
+  {
+   "id": 23082,
+   "date": "2026-08-06T10:40:27",
+   "modified": "2026-10-13T11:56:04",
+   "slug": "lassen-construction",
+   "link": "https://www.bluesciencepark.se/medlem/lassen-construction/",
+   "title": {
+    "rendered": "Lassen Construction"
+   }
+  },
+  {
+   "id": 22530,
+   "date": "2026-02-25T06:49:48",
+   "modified": "2026-10-13T11:56:22",
+   "slug": "lysa",
+   "link": "https://www.bluesciencepark.se/medlem/lysa/",
+   "title": {
+    "rendered": "Lysa"
+   }
+  },
+  {
+   "id": 22072,
+   "date": "2026-01-14T07:55:05",
+   "modified": "2026-10-13T11:56:15",
+   "slug": "njord-x",
+   "link": "https://www.bluesciencepark.se/medlem/njord-x/",
+   "title": {
+    "rendered": "Njord X"
+   }
+  },
+  {
+   "id": 21720,
+   "date": "2025-08-11T12:57:52",
+   "modified": "2025-08-11T13:00:23",
+   "slug": "hundtjanst-blekinge-ab",
+   "link": "https://www.bluesciencepark.se/medlem/hundtjanst-blekinge-ab/",
+   "title": {
+    "rendered": "Hundtjänst Blekinge AB"
+   }
+  },
+  {
+   "id": 20883,
+   "date": "2025-02-06T09:19:59",
+   "modified": "2025-02-06T09:19:59",
+   "slug": "yellowfish",
+   "link": "https://www.bluesciencepark.se/medlem/yellowfish/",
+   "title": {
+    "rendered": "Yellowfish"
+   }
+  },
+  {
+   "id": 20878,
+   "date": "2025-02-06T09:15:40",
+   "modified": "2025-02-06T10:12:58",
+   "slug": "dnv-cyber",
+   "link": "https://www.bluesciencepark.se/medlem/dnv-cyber/",
+   "title": {
+    "rendered": "DNV Cyber"
+   }
+  },
+  {
+   "id": 20876,
+   "date": "2025-02-06T09:13:17",
+   "modified": "2025-02-06T10:30:27",
+   "slug": "forsakringskassan",
+   "link": "https://www.bluesciencepark.se/medlem/forsakringskassan/",
+   "title": {
+    "rendered": "Försäkringskassan"
+   }
+  },
+  {
+   "id": 20875,
+   "date": "2025-02-06T09:11:46",
+   "modified": "2025-02-06T10:30:59",
+   "slug": "nicon",
+   "link": "https://www.bluesciencepark.se/medlem/nicon/",
+   "title": {
+    "rendered": "Nicon"
+   }
+  },
+  {
+   "id": 20873,
+   "date": "2025-02-06T09:10:22",
+   "modified": "2025-02-06T11:32:03",
+   "slug": "baltic-offshore",
+   "link": "https://www.bluesciencepark.se/medlem/baltic-offshore/",
+   "title": {
+    "rendered": "Baltic Offshore"
+   }
+  },
+  {
+   "id": 20830,
+   "date": "2025-02-06T07:58:52",
+   "modified": "2025-02-06T12:12:41",
+   "slug": "fmv",
+   "link": "https://www.bluesciencepark.se/medlem/fmv/",
+   "title": {
+    "rendered": "FMV"
+   }
+  },
+  {
+   "id": 20826,
+   "date": "2025-02-06T07:57:23",
+   "modified": "2025-02-06T07:57:23",
+   "slug": "nexer",
+   "link": "https://www.bluesciencepark.se/medlem/nexer/",
+   "title": {
+    "rendered": "Nexer"
+   }
+  },
+  {
+   "id": 20822,
+   "date": "2025-02-06T07:55:47",
+   "modified": "2025-02-06T10:17:21",
+   "slug": "knowit",
+   "link": "https://www.bluesciencepark.se/medlem/knowit/",
+   "title": {
+    "rendered": "Knowit"
+   }
+  },
+  {
+   "id": 20815,
+   "date": "2025-02-06T07:53:45",
+   "modified": "2026-10-13T11:58:06",
+   "slug": "blekinge-business-incubator",
+   "link": "https://www.bluesciencepark.se/medlem/blekinge-business-incubator/",
+   "title": {
+    "rendered": "Blekinge Business Incubator"
+   }
+  },
+  {
+   "id": 20811,
+   "date": "2025-02-06T07:51:24",
+   "modified": "2025-02-06T13:48:38",
+   "slug": "ocean-harvesting",
+   "link": "https://www.bluesciencepark.se/medlem/ocean-harvesting/",
+   "title": {
+    "rendered": "Ocean Harvesting"
+   }
+  },
+  {
+   "id": 20795,
+   "date": "2025-02-06T07:47:59",
+   "modified": "2025-02-06T07:47:59",
+   "slug": "afry",
+   "link": "https://www.bluesciencepark.se/medlem/afry/",
+   "title": {
+    "rendered": "AFRY"
+   }
+  },
+  {
+   "id": 20788,
+   "date": "2025-02-06T07:45:13",
+   "modified": "2025-02-06T07:45:13",
+   "slug": "factor10",
+   "link": "https://www.bluesciencepark.se/medlem/factor10/",
+   "title": {
+    "rendered": "Factor10"
+   }
+  },
+  {
+   "id": 20784,
+   "date": "2025-02-06T07:43:46",
+   "modified": "2025-02-06T12:53:29",
+   "slug": "midcon",
+   "link": "https://www.bluesciencepark.se/medlem/midcon/",
+   "title": {
+    "rendered": "Midcon"
+   }
+  },
+  {
+   "id": 20780,
+   "date": "2025-02-06T07:42:34",
+   "modified": "2025-02-06T07:42:34",
+   "slug": "ge-99",
+   "link": "https://www.bluesciencepark.se/medlem/ge-99/",
+   "title": {
+    "rendered": "GE 99"
+   }
+  },
+  {
+   "id": 20776,
+   "date": "2025-02-06T07:41:30",
+   "modified": "2025-02-06T07:41:30",
+   "slug": "c-marine-ab",
+   "link": "https://www.bluesciencepark.se/medlem/c-marine-ab/",
+   "title": {
+    "rendered": "C Marine AB"
+   }
+  },
+  {
+   "id": 20775,
+   "date": "2025-02-06T07:39:54",
+   "modified": "2025-02-06T12:33:27",
+   "slug": "affarsverken",
+   "link": "https://www.bluesciencepark.se/medlem/affarsverken/",
+   "title": {
+    "rendered": "Affärsverken"
+   }
+  },
+  {
+   "id": 20773,
+   "date": "2025-02-06T07:38:14",
+   "modified": "2025-02-06T07:38:34",
+   "slug": "varidens",
+   "link": "https://www.bluesciencepark.se/medlem/varidens/",
+   "title": {
+    "rendered": "Veridens"
+   }
+  },
+  {
+   "id": 20771,
+   "date": "2025-02-06T07:35:38",
+   "modified": "2025-02-06T07:36:54",
+   "slug": "addsecure",
+   "link": "https://www.bluesciencepark.se/medlem/addsecure/",
+   "title": {
+    "rendered": "AddSecure &#8211; Smartgrids"
+   }
+  },
+  {
+   "id": 20770,
+   "date": "2025-02-06T07:31:07",
+   "modified": "2025-02-06T07:31:07",
+   "slug": "3d-vision",
+   "link": "https://www.bluesciencepark.se/medlem/3d-vision/",
+   "title": {
+    "rendered": "3D Vision"
+   }
+  },
+  {
+   "id": 20769,
+   "date": "2025-02-06T07:28:52",
+   "modified": "2025-05-27T08:48:34",
+   "slug": "allbinary",
+   "link": "https://www.bluesciencepark.se/medlem/allbinary/",
+   "title": {
+    "rendered": "AllBinary"
+   }
+  },
+  {
+   "id": 20768,
+   "date": "2025-02-06T07:25:51",
+   "modified": "2025-02-06T07:25:51",
+   "slug": "almi",
+   "link": "https://www.bluesciencepark.se/medlem/almi/",
+   "title": {
+    "rendered": "Almi"
+   }
+  },
+  {
+   "id": 20745,
+   "date": "2025-02-05T15:55:03",
+   "modified": "2025-02-05T15:55:03",
+   "slug": "atea",
+   "link": "https://www.bluesciencepark.se/medlem/atea/",
+   "title": {
+    "rendered": "Atea"
+   }
+  },
+  {
+   "id": 20739,
+   "date": "2025-02-05T15:53:53",
+   "modified": "2025-02-05T15:53:53",
+   "slug": "kingspan-baga",
+   "link": "https://www.bluesciencepark.se/medlem/kingspan-baga/",
+   "title": {
+    "rendered": "Kingspan BAGA"
+   }
+  },
+  {
+   "id": 20738,
+   "date": "2025-02-05T15:52:14",
+   "modified": "2025-02-05T15:52:14",
+   "slug": "ballou",
+   "link": "https://www.bluesciencepark.se/medlem/ballou/",
+   "title": {
+    "rendered": "Ballou"
+   }
+  },
+  {
+   "id": 20730,
+   "date": "2025-02-05T15:51:21",
+   "modified": "2025-04-22T13:52:48",
+   "slug": "blekinge-tekniska-hogskola",
+   "link": "https://www.bluesciencepark.se/medlem/blekinge-tekniska-hogskola/",
+   "title": {
+    "rendered": "Blekinge Tekniska Högskola"
+   }
+  },
+  {
+   "id": 20720,
+   "date": "2025-02-05T15:48:07",
+   "modified": "2025-02-05T15:48:07",
+   "slug": "dxc-technology",
+   "link": "https://www.bluesciencepark.se/medlem/dxc-technology/",
+   "title": {
+    "rendered": "DXC Technology"
+   }
+  },
+  {
+   "id": 20716,
+   "date": "2025-02-05T15:46:02",
+   "modified": "2025-02-06T12:41:55",
+   "slug": "embeddedart",
+   "link": "https://www.bluesciencepark.se/medlem/embeddedart/",
+   "title": {
+    "rendered": "EmbeddedArt"
+   }
+  },
+  {
+   "id": 20709,
+   "date": "2025-02-05T15:44:42",
+   "modified": "2025-02-05T15:44:42",
+   "slug": "energimyndigheten",
+   "link": "https://www.bluesciencepark.se/medlem/energimyndigheten/",
+   "title": {
+    "rendered": "Energimyndigheten"
+   }
+  },
+  {
+   "id": 20705,
+   "date": "2025-02-05T15:42:11",
+   "modified": "2025-02-05T15:42:11",
+   "slug": "ericsson",
+   "link": "https://www.bluesciencepark.se/medlem/ericsson/",
+   "title": {
+    "rendered": "Ericsson"
+   }
+  },
+  {
+   "id": 20701,
+   "date": "2025-02-05T15:39:05",
+   "modified": "2025-02-06T12:45:03",
+   "slug": "forsvarsmakten",
+   "link": "https://www.bluesciencepark.se/medlem/forsvarsmakten/",
+   "title": {
+    "rendered": "Försvarsmakten"
+   }
+  },
+  {
+   "id": 20694,
+   "date": "2025-02-05T15:36:21",
+   "modified": "2025-02-05T15:36:21",
+   "slug": "hi-story",
+   "link": "https://www.bluesciencepark.se/medlem/hi-story/",
+   "title": {
+    "rendered": "Hi Story"
+   }
+  },
+  {
+   "id": 20692,
+   "date": "2025-02-05T15:33:59",
+   "modified": "2025-02-05T15:33:59",
+   "slug": "indigo-ipex",
+   "link": "https://www.bluesciencepark.se/medlem/indigo-ipex/",
+   "title": {
+    "rendered": "Indigo Ipex"
+   }
+  },
+  {
+   "id": 20688,
+   "date": "2025-02-05T15:32:47",
+   "modified": "2025-02-05T15:32:58",
+   "slug": "hiq",
+   "link": "https://www.bluesciencepark.se/medlem/hiq/",
+   "title": {
+    "rendered": "HiQ"
+   }
+  },
+  {
+   "id": 20684,
+   "date": "2025-02-05T15:30:56",
+   "modified": "2025-02-06T12:54:55",
+   "slug": "karlskrona-kommun",
+   "link": "https://www.bluesciencepark.se/medlem/karlskrona-kommun/",
+   "title": {
+    "rendered": "Karlskrona Kommun"
+   }
+  },
+  {
+   "id": 20683,
+   "date": "2025-02-05T15:29:39",
+   "modified": "2025-08-13T10:20:48",
+   "slug": "kiwa",
+   "link": "https://www.bluesciencepark.se/medlem/kiwa/",
+   "title": {
+    "rendered": "Kiwa"
+   }
+  },
+  {
+   "id": 20678,
+   "date": "2025-02-05T15:26:53",
+   "modified": "2025-02-06T12:56:38",
+   "slug": "kustbevakningen",
+   "link": "https://www.bluesciencepark.se/medlem/kustbevakningen/",
+   "title": {
+    "rendered": "Kustbevakningen"
+   }
+  },
+  {
+   "id": 20665,
+   "date": "2025-02-05T15:24:31",
+   "modified": "2025-02-05T15:27:34",
+   "slug": "lansstyrelsen-blekinge",
+   "link": "https://www.bluesciencepark.se/medlem/lansstyrelsen-blekinge/",
+   "title": {
+    "rendered": "Länsstyrelsen Blekinge"
+   }
+  },
+  {
+   "id": 20662,
+   "date": "2025-02-05T15:19:33",
+   "modified": "2026-05-13T11:58:55",
+   "slug": "malvacom",
+   "link": "https://www.bluesciencepark.se/medlem/malvacom/",
+   "title": {
+    "rendered": "Malvacom"
+   }
+  },
+  {
+   "id": 20661,
+   "date": "2025-02-05T15:18:34",
+   "modified": "2025-02-05T15:18:34",
+   "slug": "mj-marcable-consulting-ab",
+   "link": "https://www.bluesciencepark.se/medlem/mj-marcable-consulting-ab/",
+   "title": {
+    "rendered": "MJ MarCable Consulting AB"
+   }
+  },
+  {
+   "id": 20655,
+   "date": "2025-02-05T15:16:19",
+   "modified": "2025-02-06T12:59:40",
+   "slug": "nkt",
+   "link": "https://www.bluesciencepark.se/medlem/nkt/",
+   "title": {
+    "rendered": "NKT"
+   }
+  },
+  {
+   "id": 20651,
+   "date": "2025-02-05T15:12:47",
+   "modified": "2025-02-06T13:01:35",
+   "slug": "region-blekinge",
+   "link": "https://www.bluesciencepark.se/medlem/region-blekinge/",
+   "title": {
+    "rendered": "Region Blekinge"
+   }
+  },
+  {
+   "id": 20648,
+   "date": "2025-02-05T15:09:57",
+   "modified": "2025-02-06T13:21:28",
+   "slug": "softhouse",
+   "link": "https://www.bluesciencepark.se/medlem/softhouse/",
+   "title": {
+    "rendered": "Softhouse"
+   }
+  },
+  {
+   "id": 20647,
+   "date": "2025-02-05T15:07:22",
+   "modified": "2025-02-05T15:15:23",
+   "slug": "roxtec",
+   "link": "https://www.bluesciencepark.se/medlem/roxtec/",
+   "title": {
+    "rendered": "Roxtec"
+   }
+  },
+  {
+   "id": 20646,
+   "date": "2025-02-05T15:02:54",
+   "modified": "2025-02-06T13:32:37",
+   "slug": "saab",
+   "link": "https://www.bluesciencepark.se/medlem/saab/",
+   "title": {
+    "rendered": "SAAB"
+   }
+  },
+  {
+   "id": 20643,
+   "date": "2025-02-05T14:53:44",
+   "modified": "2025-02-05T15:43:15",
+   "slug": "spirius",
+   "link": "https://www.bluesciencepark.se/medlem/spirius/",
+   "title": {
+    "rendered": "Spirius"
+   }
+  },
+  {
+   "id": 20641,
+   "date": "2025-02-05T14:52:27",
+   "modified": "2025-02-05T15:07:44",
+   "slug": "stena-line",
+   "link": "https://www.bluesciencepark.se/medlem/stena-line/",
+   "title": {
+    "rendered": "Stena Line"
+   }
+  },
+  {
+   "id": 20639,
+   "date": "2025-02-05T14:48:34",
+   "modified": "2025-02-05T15:08:16",
+   "slug": "sweco",
+   "link": "https://www.bluesciencepark.se/medlem/sweco/",
+   "title": {
+    "rendered": "Sweco"
+   }
+  },
+  {
+   "id": 20636,
+   "date": "2025-02-05T14:46:53",
+   "modified": "2025-02-12T15:10:07",
+   "slug": "compani-56",
+   "link": "https://www.bluesciencepark.se/medlem/compani-56/",
+   "title": {
+    "rendered": "Compani 56"
+   }
+  },
+  {
+   "id": 20633,
+   "date": "2025-02-05T14:45:41",
+   "modified": "2025-02-05T14:45:41",
+   "slug": "techinova",
+   "link": "https://www.bluesciencepark.se/medlem/techinova/",
+   "title": {
+    "rendered": "Techinova"
+   }
+  },
+  {
+   "id": 20632,
+   "date": "2025-02-05T14:39:43",
+   "modified": "2025-02-05T14:43:22",
+   "slug": "telenor",
+   "link": "https://www.bluesciencepark.se/medlem/telenor/",
+   "title": {
+    "rendered": "Telenor"
+   }
+  },
+  {
+   "id": 20625,
+   "date": "2025-02-05T14:38:36",
+   "modified": "2025-02-05T14:43:00",
+   "slug": "wip",
+   "link": "https://www.bluesciencepark.se/medlem/wip/",
+   "title": {
+    "rendered": "WIP"
+   }
+  },
+  {
+   "id": 20552,
+   "date": "2025-02-05T08:50:10",
+   "modified": "2025-05-27T08:47:37",
+   "slug": "cleura",
+   "link": "https://www.bluesciencepark.se/medlem/cleura/",
+   "title": {
+    "rendered": "Cleura"
+   }
+  }
+ ]
+}

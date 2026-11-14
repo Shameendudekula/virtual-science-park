@@ -1,0 +1,63 @@
+{
+  "slug": "nkt",
+  "name": "NKT",
+  "legal_name": "NKT",
+  "website": "https://www.nkt.com/",
+  "tagline": "Cable Solutions - HV, MV and LV Cables",
+  "profile_level": "partial",
+  "organisation_type": "company",
+  "is_demo_company": false,
+  "membership": {
+    "bsp_member_id": 20655,
+    "url": "https://www.bluesciencepark.se/medlem/nkt/"
+  },
+  "pages": {
+    "home": {
+      "url": "https://www.nkt.com/",
+      "title": "NKT | Cable Solutions - HV, MV and LV Cables, Cable Accessories and Cable Services",
+      "publisher": "NKT"
+    },
+    "about": {
+      "url": "https://www.nkt.com/about-us",
+      "title": "About us | NKT",
+      "publisher": "NKT"
+    }
+  },
+  "claims": [
+    {
+      "field": "overview",
+      "label": "Company overview",
+      "page": "home",
+      "value": "Power cable solutions: high-, medium- and low-voltage cables, cable accessories and cable services.",
+      "excerpt": "NKT | Cable Solutions - HV, MV and LV Cables, Cable Accessories and Cable Services"
+    },
+    {
+      "field": "capability",
+      "label": "HV cable production & offshore cable-laying",
+      "page": "about",
+      "value": "High-voltage cable production and offshore cable-laying capabilities (following the acquisition of ABB HV Cables in Sweden).",
+      "excerpt": "With the acquisition of ABB HV Cables in Sweden, NKT increased capacity of HV cable production and offshore cable-laying capabilities"
+    },
+    {
+      "field": "technology",
+      "label": "525 kV DC cable system",
+      "page": "about",
+      "value": "525 kV cable system described as a key element in developing a DC grid that uses renewable energy generation more efficiently.",
+      "excerpt": "The 525 kV cable system is a key element in developing a DC grid that can use renewable energy generation more efficiently."
+    },
+    {
+      "field": "project",
+      "label": "First HVDC MI submarine cable",
+      "page": "about",
+      "value": "Historical milestone: the first HVDC MI submarine cable, connecting Gotland with the Swedish mainland.",
+      "excerpt": "NKT launches the first HVDC MI submarine cable."
+    },
+    {
+      "field": "location",
+      "label": "Factory in Karlskrona (since 2017)",
+      "page": "about",
+      "value": "Operates a factory in Karlskrona, Sweden, acquired in 2017.",
+      "excerpt": "Acquisition of factory in Karlskrona"
+    }
+  ]
+}

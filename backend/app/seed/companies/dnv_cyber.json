@@ -1,0 +1,25 @@
+{
+  "slug": "dnv-cyber",
+  "name": "DNV Cyber",
+  "legal_name": "DNV Cyber",
+  "website": "https://www.dnv.com/cyber/",
+  "tagline": "Cybersecurity services",
+  "profile_level": "partial",
+  "organisation_type": "company",
+  "is_demo_company": false,
+  "membership": {"bsp_member_id": 20878, "url": "https://www.bluesciencepark.se/medlem/dnv-cyber/"},
+  "pages": {
+    "about": {"url": "https://www.dnv.com/cyber/about/", "title": "About DNV Cyber", "publisher": "DNV"}
+  },
+  "claims": [
+    {"field": "overview", "label": "Company overview", "page": "about",
+     "value": "Cybersecurity services provider formed by merging Nixu, Applied Risk and DNV in 2024.",
+     "excerpt": "DNV Cyber is a leading cybersecurity services provider, formed by merging Nixu, Applied Risk and DNV in 2024."},
+    {"field": "service", "label": "Cybersecurity services", "page": "about",
+     "value": "Cybersecurity services that help businesses with complex needs become safer and more resilient.",
+     "excerpt": "We empower businesses with complex needs to become safer and more resilient."},
+    {"field": "capability", "label": "Operational technology (OT) security", "page": "about",
+     "value": "Service area: securing operational technology (OT).",
+     "excerpt": "Secure operational technology"}
+  ]
+}

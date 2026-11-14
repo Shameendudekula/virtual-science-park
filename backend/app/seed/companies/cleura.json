@@ -1,0 +1,176 @@
+{
+  "slug": "cleura",
+  "name": "Cleura",
+  "legal_name": "Cleura AB",
+  "website": "https://cleura.com/",
+  "tagline": "The European cloud",
+  "profile_level": "full",
+  "organisation_type": "company",
+  "is_demo_company": true,
+  "membership": {
+    "bsp_member_id": 20552,
+    "url": "https://www.bluesciencepark.se/medlem/cleura/"
+  },
+  "pages": {
+    "home": {
+      "url": "https://cleura.com/",
+      "title": "Cleura – European Cloud & Compliant Cloud Solutions",
+      "publisher": "Cleura"
+    },
+    "company": {
+      "url": "https://cleura.com/resources/company/",
+      "title": "Company - Cleura",
+      "publisher": "Cleura"
+    },
+    "certs": {
+      "url": "https://cleura.com/compliance/certifications/",
+      "title": "Certifications - Cleura",
+      "publisher": "Cleura"
+    },
+    "ai": {
+      "url": "https://cleura.com/news/cleura-prepares-ai-platform-and-inference-services-on-compliant-cloud/",
+      "title": "Cleura prepares AI platform and inference services on Compliant Cloud",
+      "publisher": "Cleura"
+    },
+    "saab": {
+      "url": "https://cleura.com/press-releases/cleura-selected-as-a-strategic-cloud-partner-for-saab/",
+      "title": "Cleura selected as a strategic cloud partner for Saab",
+      "publisher": "Cleura"
+    }
+  },
+  "claims": [
+    {
+      "field": "overview",
+      "label": "Company overview",
+      "page": "company",
+      "value": "European cloud provider offering fully automated digital infrastructure services for organisations that want to innovate without sacrificing data privacy.",
+      "excerpt": "Cleura is the European cloud, offering fully automated digital infrastructure services for companies that want to innovate without sacrificing data privacy."
+    },
+    {
+      "field": "location",
+      "label": "Headquartered in Sweden (part of Iver)",
+      "page": "company",
+      "value": "Part of Iver; headquartered in Sweden.",
+      "excerpt": "As a part of Iver, Cleura is headquartered in Sweden."
+    },
+    {
+      "field": "product",
+      "label": "Cleura Cloud — OpenStack IaaS",
+      "page": "home",
+      "value": "Open-source based infrastructure-as-a-service (IaaS) built on OpenStack, with data hosted in certified European data centres.",
+      "excerpt": "We provide open-source based infrastructure-as-a-service (IaaS), built on OpenStack, with all data hosted in certified European data centers."
+    },
+    {
+      "field": "product",
+      "label": "Compliant Cloud",
+      "page": "home",
+      "value": "Compliant Cloud: a European cloud platform designed for mission-critical data and applications.",
+      "excerpt": "A robust European cloud platform for innovation, designed for mission critical data and applications."
+    },
+    {
+      "field": "product",
+      "label": "Public Cloud",
+      "page": "home",
+      "value": "Public Cloud: build, test and deploy applications with full automation in a European public cloud based on OpenStack.",
+      "excerpt": "Build, test and deploy your applications with full automation in a European public cloud based on OpenStack."
+    },
+    {
+      "field": "product",
+      "label": "Private Cloud",
+      "page": "home",
+      "value": "Private Cloud: turnkey solution for enterprises that require their own OpenStack-based cloud.",
+      "excerpt": "Private Cloud from Cleura is a turnkey solution for enterprises that requires their own OpenStack-based cloud."
+    },
+    {
+      "field": "service",
+      "label": "Compute, containers, storage, databases, managed services, training",
+      "page": "home",
+      "value": "Compute (virtual machines), containers, storage, databases, managed services and training, delivered with a focus on digital sovereignty.",
+      "excerpt": "We offer compute (VMs), containers, storage, databases, managed services, and training"
+    },
+    {
+      "field": "product",
+      "label": "AI platform & inference services (upcoming)",
+      "page": "ai",
+      "value": "Close to launching an AI platform and inference services on Compliant Cloud, targeting organisations that use AI on sensitive data.",
+      "excerpt": "Cleura is close to launching an AI platform and inference services for customers and partners."
+    },
+    {
+      "field": "business_focus",
+      "label": "AI on sensitive data",
+      "page": "ai",
+      "value": "The AI services run exclusively within the EU and target organisations that use AI on sensitive data.",
+      "excerpt": "The services run on Compliant Cloud, which Cleura operates exclusively within the EU. They target organisations that use AI on sensitive data."
+    },
+    {
+      "field": "business_focus",
+      "label": "Planned AI and data marketplace build-out",
+      "page": "ai",
+      "value": "Plans to add compute capacity and a marketplace of building blocks for data and AI development.",
+      "excerpt": "The AI platform is the first step in a planned build-out. Cleura will add compute capacity and a marketplace of building blocks for data and AI development."
+    },
+    {
+      "field": "capability",
+      "label": "Data sovereignty outside US extraterritorial law",
+      "page": "home",
+      "value": "States that it is not subject to US extraterritorial surveillance laws, supporting European digital sovereignty requirements.",
+      "excerpt": "Cleura does not depend on an unstable adequacy decision and is not subject to US extraterritorial surveillance laws."
+    },
+    {
+      "field": "capability",
+      "label": "ISO 27001:2022, ISO 9001, ISO 14001 certified",
+      "page": "certs",
+      "value": "Certified to ISO 9001, ISO 14001 and ISO 27001:2022 (quality, environmental and information security management).",
+      "excerpt": "Cleura is certified according to ISO 9001, ISO 14001, and ISO 27001:2022"
+    },
+    {
+      "field": "capability",
+      "label": "Multi-region European data centres",
+      "page": "home",
+      "value": "Cloud runs in multiple European regions including Sweden and Germany, with infrastructure certified for security and compliance.",
+      "excerpt": "Cleura Cloud runs in multiple European regions, including Sweden and Germany, with all infrastructure certified for security and compliance."
+    },
+    {
+      "field": "technology",
+      "label": "OpenStack & open source",
+      "page": "company",
+      "value": "Heavy engagement in open source with decades of experience building and scaling cloud infrastructure.",
+      "excerpt": "We engage heavily in open source and have decades of experience in building and globally scaling our cloud infrastructure solutions."
+    },
+    {
+      "field": "industry",
+      "label": "Defense, public sector, AI, media, MedTech, cybersecurity",
+      "page": "home",
+      "value": "Customer industries shown on the website: defense, public sector, AI, media, MedTech and cybersecurity.",
+      "excerpt": "Defense Public Sector AI Media MedTech Cybersecurity"
+    },
+    {
+      "field": "industry",
+      "label": "Regulated industries & security companies",
+      "page": "company",
+      "value": "Serves large security companies, enterprises in heavily regulated industries and tech startups.",
+      "excerpt": "We serve some of the world's largest security companies, significant enterprises in heavily regulated industries, and tech startups."
+    },
+    {
+      "field": "documented_collaboration",
+      "label": "Strategic cloud partner for Saab (press release)",
+      "page": "saab",
+      "value": "Publicly announced multi-year strategic collaboration with Saab around cloud-based digital infrastructure, including design, implementation and operation of a private cloud.",
+      "excerpt": "Cleura, the European Cloud, and Saab have entered a strategic collaboration around cloud-based digital infrastructure."
+    },
+    {
+      "field": "documented_collaboration",
+      "label": "Partnership with Nextcloud (press release title)",
+      "page": "home",
+      "value": "Announced an EU sovereign collaboration suite and strategic partnership with Nextcloud.",
+      "excerpt": "Cleura announces EU sovereign collaboration suite and strategic partnership with Nextcloud"
+    },
+    {
+      "field": "location",
+      "label": "Headquartered in Karlskrona, Sweden",
+      "page": "saab",
+      "value": "Headquartered in Karlskrona, Sweden.",
+      "excerpt": "the cloud company headquartered in Karlskrona, Sweden"
+    }
+  ]
+}
